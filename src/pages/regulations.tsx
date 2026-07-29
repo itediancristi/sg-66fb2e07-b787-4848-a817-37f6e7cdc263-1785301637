@@ -349,7 +349,7 @@ export default function RegulationsPage() {
 
                   <div className="mt-6 p-4 bg-muted/20 rounded border border-border">
                     <p className="text-sm">
-                      For privacy inquiries or data requests, contact <a href="mailto:privacy@opentrial.com" className="text-neon-green hover:underline">privacy@opentrial.com</a>
+                      For privacy inquiries or data requests, contact <a href="mailto:info@opentrialfootball.com" className="text-neon-green hover:underline">info@opentrialfootball.com</a>
                     </p>
                   </div>
                 </div>
@@ -359,8 +359,8 @@ export default function RegulationsPage() {
             <div className="text-center pt-8">
               <p className="text-sm text-muted-foreground">
                 Last updated: July 2026 • For questions about these terms, contact{" "}
-                <a href="mailto:legal@opentrial.com" className="text-neon-green hover:underline">
-                  legal@opentrial.com
+                <a href="mailto:info@opentrialfootball.com" className="text-neon-green hover:underline">
+                  info@opentrialfootball.com
                 </a>
               </p>
             </div>

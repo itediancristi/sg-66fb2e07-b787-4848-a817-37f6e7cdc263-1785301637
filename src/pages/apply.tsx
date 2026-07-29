@@ -89,7 +89,7 @@ export default function ApplyPage() {
                 </Button>
                 
                 <p className="text-sm text-muted-foreground">
-                  Questions? Contact us at <a href="mailto:support@opentrial.com" className="text-neon-green hover:underline">support@opentrial.com</a>
+                  Questions? Contact us at <a href="mailto:info@opentrialfootball.com" className="text-neon-green hover:underline">info@opentrialfootball.com</a>
                 </p>
               </div>
             </div>
