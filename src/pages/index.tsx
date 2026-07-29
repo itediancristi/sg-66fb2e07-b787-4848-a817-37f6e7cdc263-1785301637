@@ -7,7 +7,7 @@ import { SEO } from "@/components/SEO";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Users, Globe, TrendingUp, CheckCircle, Eye, Award, Zap, Target, ChevronRight } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface Player {
   id: number;
@@ -73,10 +73,35 @@ function Counter({ end, duration = 2000 }: { end: number; duration?: number }) {
   return <span>{count.toLocaleString()}</span>;
 }
 
+function useScrollReveal() {
+  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleSections((prev) => new Set(prev).add(entry.target.id));
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "-50px" }
+    );
+
+    const sections = document.querySelectorAll("[data-scroll-reveal]");
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
+  return visibleSections;
+}
+
 export default function HomePage() {
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [statsVisible, setStatsVisible] = useState(false);
+  const visibleSections = useScrollReveal();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -160,7 +185,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="stats-section" className="py-20 border-t border-border">
+      <section 
+        id="stats-section" 
+        data-scroll-reveal
+        className={`py-20 border-t border-border transition-all duration-1000 ${
+          visibleSections.has("stats-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
         <div className="container">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-6 text-glow">
             TALENT IS EVERYWHERE.<br />OPPORTUNITY IS NOT.
@@ -218,8 +249,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-20 relative">
-        <div className="absolute inset-0 bg-[url('/generated/tactics-board.png')] bg-center bg-no-repeat opacity-5"></div>
+      <section 
+        id="how-it-works-section"
+        data-scroll-reveal
+        className={`py-20 relative transition-all duration-1000 ${
+          visibleSections.has("how-it-works-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
         <div className="container relative z-10">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-16 text-glow">
             HOW OPEN TRIAL WORKS
@@ -252,7 +288,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-20 border-t border-border">
+      <section 
+        id="who-its-for-section"
+        data-scroll-reveal
+        className={`py-20 border-t border-border transition-all duration-1000 ${
+          visibleSections.has("who-its-for-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
         <div className="container">
           <h2 className="text-4xl sm:text-5xl font-bold text-center mb-12 text-glow">
             WHO IT&apos;S FOR
@@ -290,7 +332,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-20 relative overflow-hidden">
+      <section 
+        id="player-profiles-section"
+        data-scroll-reveal
+        className={`py-20 relative overflow-hidden transition-all duration-1000 ${
+          visibleSections.has("player-profiles-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
         <div className="absolute inset-0 bg-gradient-to-b from-background to-card/30"></div>
         <div className="container relative z-10">
           <h2 className="text-4xl sm:text-5xl font-bold text-center mb-12 text-glow">
@@ -333,7 +381,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-20 border-t border-border">
+      <section 
+        id="why-open-trial-section"
+        data-scroll-reveal
+        className={`py-20 border-t border-border transition-all duration-1000 ${
+          visibleSections.has("why-open-trial-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
         <div className="container">
           <h2 className="text-4xl sm:text-5xl font-bold text-center mb-16 text-glow">
             WHY OPEN TRIAL
@@ -379,9 +433,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-neon-green/5 to-transparent"></div>
-        <div className="container relative z-10">
+      <section 
+        id="testimonials-section"
+        data-scroll-reveal
+        className={`py-20 relative overflow-hidden transition-all duration-1000 ${
+          visibleSections.has("testimonials-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
+        <div className="container">
           <h2 className="text-4xl sm:text-5xl font-bold text-center mb-12 text-glow">
             SUCCESS STORIES
           </h2>
@@ -428,7 +487,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-12 border-t border-border bg-card/30 backdrop-blur overflow-hidden">
+      <section 
+        id="trust-bar-section"
+        data-scroll-reveal
+        className={`py-12 border-t border-border bg-card/30 backdrop-blur overflow-hidden transition-all duration-1000 ${
+          visibleSections.has("trust-bar-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
         <div className="container">
           <p className="text-center text-sm text-muted-foreground mb-6 md:mb-8 tracking-wide">
             Trusted By Players Seeking Opportunities Across Europe
@@ -690,7 +755,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-20 border-t border-border relative overflow-hidden">
+      <section 
+        id="cta-section"
+        data-scroll-reveal
+        className={`py-20 border-t border-border relative overflow-hidden transition-all duration-1000 ${
+          visibleSections.has("cta-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
         <div className="absolute inset-0 opacity-10">
           <Image
             src="/generated/player-action.png"
