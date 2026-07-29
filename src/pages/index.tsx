@@ -152,211 +152,181 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-12 border-t border-border bg-card/30 backdrop-blur">
+      <section className="py-12 border-t border-border bg-card/30 backdrop-blur overflow-hidden">
         <div className="container">
           <p className="text-center text-sm text-muted-foreground mb-8 tracking-wide">
             Trusted By Players Seeking Opportunities Across Europe
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8">
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇦🇱</span>
-              <span className="text-xs text-muted-foreground">Albania</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇦🇩</span>
-              <span className="text-xs text-muted-foreground">Andorra</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇦🇲</span>
-              <span className="text-xs text-muted-foreground">Armenia</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇦🇹</span>
-              <span className="text-xs text-muted-foreground">Austria</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇦🇿</span>
-              <span className="text-xs text-muted-foreground">Azerbaijan</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇧🇾</span>
-              <span className="text-xs text-muted-foreground">Belarus</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇧🇪</span>
-              <span className="text-xs text-muted-foreground">Belgium</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇧🇦</span>
-              <span className="text-xs text-muted-foreground">Bosnia</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇧🇬</span>
-              <span className="text-xs text-muted-foreground">Bulgaria</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇭🇷</span>
-              <span className="text-xs text-muted-foreground">Croatia</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇨🇾</span>
-              <span className="text-xs text-muted-foreground">Cyprus</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇨🇿</span>
-              <span className="text-xs text-muted-foreground">Czechia</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇩🇰</span>
-              <span className="text-xs text-muted-foreground">Denmark</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇪🇪</span>
-              <span className="text-xs text-muted-foreground">Estonia</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇫🇮</span>
-              <span className="text-xs text-muted-foreground">Finland</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇫🇷</span>
-              <span className="text-xs text-muted-foreground">France</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇬🇪</span>
-              <span className="text-xs text-muted-foreground">Georgia</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇩🇪</span>
-              <span className="text-xs text-muted-foreground">Germany</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇬🇷</span>
-              <span className="text-xs text-muted-foreground">Greece</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇭🇺</span>
-              <span className="text-xs text-muted-foreground">Hungary</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇮🇸</span>
-              <span className="text-xs text-muted-foreground">Iceland</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇮🇪</span>
-              <span className="text-xs text-muted-foreground">Ireland</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇮🇹</span>
-              <span className="text-xs text-muted-foreground">Italy</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇽🇰</span>
-              <span className="text-xs text-muted-foreground">Kosovo</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇱🇻</span>
-              <span className="text-xs text-muted-foreground">Latvia</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇱🇮</span>
-              <span className="text-xs text-muted-foreground">Liechtenstein</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇱🇹</span>
-              <span className="text-xs text-muted-foreground">Lithuania</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇱🇺</span>
-              <span className="text-xs text-muted-foreground">Luxembourg</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇲🇹</span>
-              <span className="text-xs text-muted-foreground">Malta</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇲🇩</span>
-              <span className="text-xs text-muted-foreground">Moldova</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇲🇨</span>
-              <span className="text-xs text-muted-foreground">Monaco</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇲🇪</span>
-              <span className="text-xs text-muted-foreground">Montenegro</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇳🇱</span>
-              <span className="text-xs text-muted-foreground">Netherlands</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇲🇰</span>
-              <span className="text-xs text-muted-foreground">N. Macedonia</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇳🇴</span>
-              <span className="text-xs text-muted-foreground">Norway</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇵🇱</span>
-              <span className="text-xs text-muted-foreground">Poland</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇵🇹</span>
-              <span className="text-xs text-muted-foreground">Portugal</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇷🇴</span>
-              <span className="text-xs text-muted-foreground">Romania</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇷🇺</span>
-              <span className="text-xs text-muted-foreground">Russia</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇸🇲</span>
-              <span className="text-xs text-muted-foreground">San Marino</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇷🇸</span>
-              <span className="text-xs text-muted-foreground">Serbia</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇸🇰</span>
-              <span className="text-xs text-muted-foreground">Slovakia</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇸🇮</span>
-              <span className="text-xs text-muted-foreground">Slovenia</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇪🇸</span>
-              <span className="text-xs text-muted-foreground">Spain</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇸🇪</span>
-              <span className="text-xs text-muted-foreground">Sweden</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇨🇭</span>
-              <span className="text-xs text-muted-foreground">Switzerland</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇹🇷</span>
-              <span className="text-xs text-muted-foreground">Turkey</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇺🇦</span>
-              <span className="text-xs text-muted-foreground">Ukraine</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇬🇧</span>
-              <span className="text-xs text-muted-foreground">UK</span>
-            </div>
-            <div className="flex flex-col items-center gap-1 group cursor-pointer">
-              <span className="text-3xl group-hover:scale-110 transition-transform">🇻🇦</span>
-              <span className="text-xs text-muted-foreground">Vatican City</span>
+          <div className="relative">
+            <div className="flex animate-scroll-slow">
+              {[...Array(2)].map((_, setIndex) => (
+                <div key={setIndex} className="flex gap-8 px-4">
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇦🇱</span>
+                    <span className="text-xs text-muted-foreground">Albania</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇦🇹</span>
+                    <span className="text-xs text-muted-foreground">Austria</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇧🇪</span>
+                    <span className="text-xs text-muted-foreground">Belgium</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇧🇦</span>
+                    <span className="text-xs text-muted-foreground">Bosnia</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇧🇬</span>
+                    <span className="text-xs text-muted-foreground">Bulgaria</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇭🇷</span>
+                    <span className="text-xs text-muted-foreground">Croatia</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇨🇾</span>
+                    <span className="text-xs text-muted-foreground">Cyprus</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇨🇿</span>
+                    <span className="text-xs text-muted-foreground">Czechia</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇩🇰</span>
+                    <span className="text-xs text-muted-foreground">Denmark</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇪🇪</span>
+                    <span className="text-xs text-muted-foreground">Estonia</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇫🇮</span>
+                    <span className="text-xs text-muted-foreground">Finland</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇫🇷</span>
+                    <span className="text-xs text-muted-foreground">France</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇬🇪</span>
+                    <span className="text-xs text-muted-foreground">Georgia</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇩🇪</span>
+                    <span className="text-xs text-muted-foreground">Germany</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇬🇷</span>
+                    <span className="text-xs text-muted-foreground">Greece</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇭🇺</span>
+                    <span className="text-xs text-muted-foreground">Hungary</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇮🇸</span>
+                    <span className="text-xs text-muted-foreground">Iceland</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇮🇪</span>
+                    <span className="text-xs text-muted-foreground">Ireland</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇮🇹</span>
+                    <span className="text-xs text-muted-foreground">Italy</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇽🇰</span>
+                    <span className="text-xs text-muted-foreground">Kosovo</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇱🇻</span>
+                    <span className="text-xs text-muted-foreground">Latvia</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇱🇹</span>
+                    <span className="text-xs text-muted-foreground">Lithuania</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇱🇺</span>
+                    <span className="text-xs text-muted-foreground">Luxembourg</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇲🇹</span>
+                    <span className="text-xs text-muted-foreground">Malta</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇲🇩</span>
+                    <span className="text-xs text-muted-foreground">Moldova</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇲🇪</span>
+                    <span className="text-xs text-muted-foreground">Montenegro</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇳🇱</span>
+                    <span className="text-xs text-muted-foreground">Netherlands</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇲🇰</span>
+                    <span className="text-xs text-muted-foreground">N. Macedonia</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇳🇴</span>
+                    <span className="text-xs text-muted-foreground">Norway</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇵🇱</span>
+                    <span className="text-xs text-muted-foreground">Poland</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇵🇹</span>
+                    <span className="text-xs text-muted-foreground">Portugal</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇷🇴</span>
+                    <span className="text-xs text-muted-foreground">Romania</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇷🇸</span>
+                    <span className="text-xs text-muted-foreground">Serbia</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇸🇰</span>
+                    <span className="text-xs text-muted-foreground">Slovakia</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇸🇮</span>
+                    <span className="text-xs text-muted-foreground">Slovenia</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇪🇸</span>
+                    <span className="text-xs text-muted-foreground">Spain</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇸🇪</span>
+                    <span className="text-xs text-muted-foreground">Sweden</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇨🇭</span>
+                    <span className="text-xs text-muted-foreground">Switzerland</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇹🇷</span>
+                    <span className="text-xs text-muted-foreground">Turkey</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇺🇦</span>
+                    <span className="text-xs text-muted-foreground">Ukraine</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1 group cursor-pointer flex-shrink-0">
+                    <span className="text-3xl group-hover:scale-110 transition-transform">🇬🇧</span>
+                    <span className="text-xs text-muted-foreground">UK</span>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
