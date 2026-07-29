@@ -111,7 +111,19 @@
   }
 
   .animate-scroll-slow {
-    animation: scroll-slow 60s linear infinite;
+    animation: scroll-slow 40s linear infinite;
+  }
+
+  @media (min-width: 768px) {
+    .animate-scroll-slow {
+      animation: scroll-slow 60s linear infinite;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .animate-scroll-slow {
+      animation: scroll-slow 80s linear infinite;
+    }
   }
 }
 
