@@ -62,7 +62,7 @@ export function Navigation() {
             <Link href="/regulations" className={linkClass("/regulations")}>
               Regulations
             </Link>
-            <Link href="#contact" className="text-sm font-medium hover:text-neon-green transition-colors">
+            <Link href="/contact" className={linkClass("/contact")}>
               Contact
             </Link>
           </div>
@@ -107,8 +107,8 @@ export function Navigation() {
               Regulations
             </Link>
             <Link
-              href="#contact"
-              className="block py-2 text-sm font-medium hover:text-neon-green transition-colors pl-2"
+              href="/contact"
+              className={mobileLinkClass("/contact")}
               onClick={() => setIsOpen(false)}
             >
               Contact
