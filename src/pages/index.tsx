@@ -152,6 +152,44 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="py-12 border-t border-border bg-card/30 backdrop-blur">
+        <div className="container">
+          <p className="text-center text-sm text-muted-foreground mb-8 tracking-wide">
+            Trusted By Players Seeking Opportunities Across
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+            <div className="flex flex-col items-center gap-2 group cursor-pointer">
+              <span className="text-4xl group-hover:scale-110 transition-transform">🇩🇪</span>
+              <span className="text-sm text-muted-foreground">Germany</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 group cursor-pointer">
+              <span className="text-4xl group-hover:scale-110 transition-transform">🇦🇹</span>
+              <span className="text-sm text-muted-foreground">Austria</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 group cursor-pointer">
+              <span className="text-4xl group-hover:scale-110 transition-transform">🇵🇱</span>
+              <span className="text-sm text-muted-foreground">Poland</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 group cursor-pointer">
+              <span className="text-4xl group-hover:scale-110 transition-transform">🇷🇴</span>
+              <span className="text-sm text-muted-foreground">Romania</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 group cursor-pointer">
+              <span className="text-4xl group-hover:scale-110 transition-transform">🇪🇸</span>
+              <span className="text-sm text-muted-foreground">Spain</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 group cursor-pointer">
+              <span className="text-4xl group-hover:scale-110 transition-transform">🇮🇹</span>
+              <span className="text-sm text-muted-foreground">Italy</span>
+            </div>
+            <div className="flex flex-col items-center gap-2 group cursor-pointer">
+              <span className="text-4xl group-hover:scale-110 transition-transform">🇬🇧</span>
+              <span className="text-sm text-muted-foreground">United Kingdom</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="stats-section" className="py-20 border-t border-border">
         <div className="container">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-6 text-glow">
@@ -300,7 +338,7 @@ export default function HomePage() {
                           src={player.image}
                           alt={player.name}
                           fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          className="object-cover group-hover:scale-105 transition-transform duration-500 blur-sm"
                         />
                       </div>
                       <CardContent className="p-4">
@@ -387,7 +425,7 @@ export default function HomePage() {
                       src={testimonials[currentTestimonial].image}
                       alt={testimonials[currentTestimonial].name}
                       fill
-                      className="object-cover"
+                      className="object-cover blur-md"
                     />
                   </div>
                   <div className="flex-1 text-center md:text-left">
