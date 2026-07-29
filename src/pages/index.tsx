@@ -152,268 +152,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-12 border-t border-border bg-card/30 backdrop-blur overflow-hidden">
-        <div className="container">
-          <p className="text-center text-sm text-muted-foreground mb-8 tracking-wide">
-            Trusted By Players Seeking Opportunities Across Europe
-          </p>
-          <div className="relative">
-            <div className="flex animate-scroll-slow">
-              {[...Array(2)].map((_, setIndex) => (
-                <div key={setIndex} className="flex gap-8 px-4">
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-albania.png" alt="Albania" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Albania</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-austria.png" alt="Austria" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Austria</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-belgium.png" alt="Belgium" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Belgium</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-bosnia.png" alt="Bosnia" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Bosnia</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-bulgaria.png" alt="Bulgaria" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Bulgaria</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-croatia.png" alt="Croatia" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Croatia</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-cyprus.png" alt="Cyprus" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Cyprus</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-czechia.png" alt="Czechia" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Czechia</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-denmark.png" alt="Denmark" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Denmark</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-estonia.png" alt="Estonia" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Estonia</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-finland.png" alt="Finland" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Finland</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-france.png" alt="France" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">France</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-georgia.png" alt="Georgia" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Georgia</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-germany.png" alt="Germany" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Germany</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-greece.png" alt="Greece" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Greece</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-hungary.png" alt="Hungary" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Hungary</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-iceland.png" alt="Iceland" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Iceland</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-ireland.png" alt="Ireland" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Ireland</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-italy.png" alt="Italy" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Italy</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-kosovo.png" alt="Kosovo" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Kosovo</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-latvia.png" alt="Latvia" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Latvia</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-lithuania.png" alt="Lithuania" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Lithuania</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-luxembourg.png" alt="Luxembourg" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Luxembourg</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-malta.png" alt="Malta" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Malta</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-moldova.png" alt="Moldova" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Moldova</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-montenegro.png" alt="Montenegro" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Montenegro</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-netherlands.png" alt="Netherlands" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Netherlands</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-north-macedonia.png" alt="North Macedonia" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">N. Macedonia</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-norway.png" alt="Norway" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Norway</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-poland.png" alt="Poland" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Poland</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-portugal.png" alt="Portugal" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Portugal</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-romania.png" alt="Romania" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Romania</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-serbia.png" alt="Serbia" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Serbia</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-slovakia.png" alt="Slovakia" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Slovakia</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-slovenia.png" alt="Slovenia" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Slovenia</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-spain.png" alt="Spain" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Spain</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-sweden.png" alt="Sweden" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Sweden</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-switzerland.png" alt="Switzerland" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Switzerland</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-turkey.png" alt="Turkey" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Turkey</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-ukraine.png" alt="Ukraine" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">Ukraine</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
-                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
-                      <Image src="/generated/flag-uk.png" alt="United Kingdom" fill className="object-cover" />
-                    </div>
-                    <span className="text-xs text-muted-foreground">UK</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section id="stats-section" className="py-20 border-t border-border">
         <div className="container">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-6 text-glow">
@@ -678,6 +416,268 @@ export default function HomePage() {
                 </div>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-12 border-t border-border bg-card/30 backdrop-blur overflow-hidden">
+        <div className="container">
+          <p className="text-center text-sm text-muted-foreground mb-8 tracking-wide">
+            Trusted By Players Seeking Opportunities Across Europe
+          </p>
+          <div className="relative">
+            <div className="flex animate-scroll-slow">
+              {[...Array(2)].map((_, setIndex) => (
+                <div key={setIndex} className="flex gap-8 px-4">
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-albania.png" alt="Albania" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Albania</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-austria.png" alt="Austria" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Austria</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-belgium.png" alt="Belgium" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Belgium</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-bosnia.png" alt="Bosnia" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Bosnia</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-bulgaria.png" alt="Bulgaria" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Bulgaria</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-croatia.png" alt="Croatia" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Croatia</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-cyprus.png" alt="Cyprus" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Cyprus</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-czechia.png" alt="Czechia" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Czechia</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-denmark.png" alt="Denmark" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Denmark</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-estonia.png" alt="Estonia" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Estonia</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-finland.png" alt="Finland" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Finland</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-france.png" alt="France" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">France</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-georgia.png" alt="Georgia" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Georgia</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-germany.png" alt="Germany" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Germany</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-greece.png" alt="Greece" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Greece</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-hungary.png" alt="Hungary" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Hungary</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-iceland.png" alt="Iceland" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Iceland</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-ireland.png" alt="Ireland" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Ireland</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-italy.png" alt="Italy" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Italy</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-kosovo.png" alt="Kosovo" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Kosovo</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-latvia.png" alt="Latvia" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Latvia</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-lithuania.png" alt="Lithuania" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Lithuania</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-luxembourg.png" alt="Luxembourg" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Luxembourg</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-malta.png" alt="Malta" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Malta</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-moldova.png" alt="Moldova" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Moldova</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-montenegro.png" alt="Montenegro" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Montenegro</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-netherlands.png" alt="Netherlands" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Netherlands</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-north-macedonia.png" alt="North Macedonia" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">N. Macedonia</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-norway.png" alt="Norway" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Norway</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-poland.png" alt="Poland" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Poland</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-portugal.png" alt="Portugal" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Portugal</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-romania.png" alt="Romania" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Romania</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-serbia.png" alt="Serbia" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Serbia</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-slovakia.png" alt="Slovakia" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Slovakia</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-slovenia.png" alt="Slovenia" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Slovenia</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-spain.png" alt="Spain" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Spain</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-sweden.png" alt="Sweden" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Sweden</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-switzerland.png" alt="Switzerland" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Switzerland</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-turkey.png" alt="Turkey" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Turkey</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-ukraine.png" alt="Ukraine" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">Ukraine</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 group cursor-pointer flex-shrink-0">
+                    <div className="relative w-16 h-12 rounded overflow-hidden border border-border group-hover:scale-110 transition-transform">
+                      <Image src="/generated/flag-uk.png" alt="United Kingdom" fill className="object-cover" />
+                    </div>
+                    <span className="text-xs text-muted-foreground">UK</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
