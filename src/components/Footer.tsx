@@ -10,7 +10,7 @@ export function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <Image 
-                src="/1.png" 
+                src="/logo.png" 
                 alt="Open Trial Logo" 
                 width={40} 
                 height={40}

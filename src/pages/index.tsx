@@ -121,6 +121,14 @@ export default function HomePage() {
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 opacity-5">
+            <Image
+              src="/logo.png"
+              alt=""
+              fill
+              className="object-contain"
+            />
+          </div>
         </div>
 
         <div className="container relative z-10 text-center py-20">
