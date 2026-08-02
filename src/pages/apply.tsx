@@ -7,11 +7,16 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { SEO } from "@/components/SEO";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, AlertCircle } from "lucide-react";
 import { useState } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 export default function ApplyPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+  const { executeRecaptcha } = useGoogleReCaptcha();
+  
   const [formData, setFormData] = useState({
     name: "",
     age: "",
@@ -25,10 +30,45 @@ export default function ApplyPage() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    
+    if (!executeRecaptcha) {
+      setStatus("error");
+      setErrorMessage("reCAPTCHA not loaded. Please refresh the page.");
+      return;
+    }
+
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const recaptchaToken = await executeRecaptcha("apply_form");
+
+      const response = await fetch("/api/apply", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          recaptchaToken
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to submit application");
+      }
+
+      setSubmitted(true);
+      setStatus("idle");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage(error instanceof Error ? error.message : "Failed to submit application");
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -282,13 +322,23 @@ export default function ApplyPage() {
                     />
                   </div>
 
+                  {status === "error" && (
+                    <div className="flex items-center gap-3 p-4 bg-destructive/10 border border-destructive/20 rounded-lg">
+                      <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0" />
+                      <p className="text-sm text-destructive">
+                        {errorMessage || "Failed to submit application. Please try again."}
+                      </p>
+                    </div>
+                  )}
+
                   <div className="text-center pt-4">
                     <Button
                       type="submit"
                       size="lg"
+                      disabled={status === "loading"}
                       className="bg-neon-green text-background hover:bg-neon-green/90 glow-green-strong text-base px-12"
                     >
-                      Submit Application
+                      {status === "loading" ? "Submitting..." : "Submit Application"}
                     </Button>
                   </div>
                 </form>
