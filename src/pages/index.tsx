@@ -290,16 +290,6 @@ export default function HomePage() {
           visibleSections.has("who-its-for-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
-        {/* Footballer Shape Background */}
-        <div className="absolute inset-0 z-0 opacity-10">
-          <Image
-            src="/generated/player-action.png"
-            alt=""
-            fill
-            className="object-cover object-center"
-          />
-        </div>
-
         <div className="container relative z-10">
           <h2 className="text-4xl sm:text-5xl font-bold text-center mb-12 text-glow">
             WHO IT&apos;S FOR
@@ -827,14 +817,6 @@ export default function HomePage() {
 
       {/* CTA Section */}
       <section className="py-24 bg-gradient-to-b from-background to-muted/50">
-        <div className="absolute inset-0 opacity-10">
-          <Image
-            src="/generated/player-action.png"
-            alt=""
-            fill
-            className="object-cover"
-          />
-        </div>
         <div className="container relative z-10 text-center">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-glow">
             READY TO TAKE THE NEXT STEP?
