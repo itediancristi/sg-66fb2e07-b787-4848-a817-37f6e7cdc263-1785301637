@@ -9,8 +9,8 @@ interface SEOProps {
 
 // SEO elements that can be used in _document.tsx (returns JSX without Head wrapper)
 export function SEOElements({
-  title = "Hello World",
-  description = "Welcome to my app",
+  title = "Open Trial | Football Trials, Player Profiles & Club Opportunities",
+  description = "Open Trial is a football recruitment platform connecting players with clubs, scouts, and football opportunities worldwide. Create a professional player profile, showcase highlight videos, share performance statistics, and increase your visibility in the football market. Designed for amateur, semi-professional, professional players, academy graduates, and free agents seeking trials, contracts, and career opportunities. Discover talent. Analyze performance. Connect with clubs.",
   image = "/og-image.png",
   url,
 }: SEOProps) {
