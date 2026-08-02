@@ -305,48 +305,34 @@ export default function HomePage() {
             WHO IT&apos;S FOR
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="p-8 text-center bg-card/50 backdrop-blur border-border hover:border-neon-green/50 transition-all hover:shadow-lg hover:shadow-neon-green/20 group">
-              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-neon-green/10 flex items-center justify-center group-hover:bg-neon-green/20 transition-colors">
-                <svg className="w-8 h-8 text-neon-green animate-roll" viewBox="0 0 24 24" fill="currentColor">
-                  <circle cx="12" cy="12" r="10" opacity="0.3"/>
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                  <path d="M12 6l-1.5 4.5L6 12l4.5 1.5L12 18l1.5-4.5L18 12l-4.5-1.5z"/>
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-3">Semi-Pro & Amateur Players</h3>
-              <p className="text-muted-foreground">
-                Get noticed by professional clubs across Europe. Our platform connects talented players with scouts actively seeking new talent.
-              </p>
-            </Card>
-
-            <Card className="p-8 text-center bg-card/50 backdrop-blur border-border hover:border-neon-green/50 transition-all hover:shadow-lg hover:shadow-neon-green/20 group">
-              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-neon-green/10 flex items-center justify-center group-hover:bg-neon-green/20 transition-colors">
-                <svg className="w-8 h-8 text-neon-green animate-roll" viewBox="0 0 24 24" fill="currentColor">
-                  <circle cx="12" cy="12" r="10" opacity="0.3"/>
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                  <path d="M12 6l-1.5 4.5L6 12l4.5 1.5L12 18l1.5-4.5L18 12l-4.5-1.5z"/>
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-3">Football Clubs & Scouts</h3>
-              <p className="text-muted-foreground">
-                Access a curated database of verified players. Save time and resources with detailed profiles, match footage, and performance data.
-              </p>
-            </Card>
-
-            <Card className="p-8 text-center bg-card/50 backdrop-blur border-border hover:border-neon-green/50 transition-all hover:shadow-lg hover:shadow-neon-green/20 group">
-              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-neon-green/10 flex items-center justify-center group-hover:bg-neon-green/20 transition-colors">
-                <svg className="w-8 h-8 text-neon-green animate-roll" viewBox="0 0 24 24" fill="currentColor">
-                  <circle cx="12" cy="12" r="10" opacity="0.3"/>
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                  <path d="M12 6l-1.5 4.5L6 12l4.5 1.5L12 18l1.5-4.5L18 12l-4.5-1.5z"/>
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-3">Agents & Intermediaries</h3>
-              <p className="text-muted-foreground">
-                Discover hidden gems and emerging talent. Build your roster with players ready to take the next step in their careers.
-              </p>
-            </Card>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: "Amateur Players", desc: "Starting your professional journey with ambition and drive.", emoji: "⚽" },
+              { title: "Semi-Professional Players", desc: "Ready to take the next step in your career.", emoji: "⚽" },
+              { title: "Professional Players", desc: "Seeking new opportunities and career advancement.", emoji: "⚽" },
+              { title: "Academy Graduates", desc: "Transitioning from youth football to professional level.", emoji: "⚽" },
+              { title: "Free Agents", desc: "Available and ready for your next club opportunity.", emoji: "⚽" },
+              { title: "Clubs & Scouts", desc: "Discover undiscovered talent from around the world.", emoji: "⚽" },
+            ].map((item, idx) => (
+              <Card
+                key={idx}
+                className={`tactical-card bg-card/50 backdrop-blur border-border cursor-pointer transition-all duration-300 ${
+                  expandedCard === idx ? "border-neon-green" : "hover:border-neon-green/50"
+                }`}
+                onClick={() => setExpandedCard(expandedCard === idx ? null : idx)}
+              >
+                <CardContent className="p-6">
+                  <div className="text-4xl mb-4">{item.emoji}</div>
+                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                  <p className={`text-muted-foreground transition-all ${expandedCard === idx ? "block" : "line-clamp-2"}`}>
+                    {item.desc}
+                  </p>
+                  <button className="text-neon-green text-sm mt-2 hover:underline">
+                    {expandedCard === idx ? "Show less" : "Learn more"}
+                  </button>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
