@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3"
 import { SEO } from "@/components/SEO"
 import { Navigation } from "@/components/Navigation"
 import { Footer } from "@/components/Footer"
@@ -17,19 +18,32 @@ export default function Contact() {
   })
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
   const [errorMessage, setErrorMessage] = useState("")
+  const { executeRecaptcha } = useGoogleReCaptcha()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    if (!executeRecaptcha) {
+      setStatus("error")
+      setErrorMessage("reCAPTCHA not loaded. Please refresh the page.")
+      return
+    }
+
     setStatus("loading")
     setErrorMessage("")
 
     try {
+      const recaptchaToken = await executeRecaptcha("contact_form")
+
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          recaptchaToken
+        }),
       })
 
       const data = await response.json()
