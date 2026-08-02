@@ -286,11 +286,21 @@ export default function HomePage() {
       <section 
         id="who-its-for-section"
         data-scroll-reveal
-        className={`py-20 border-t border-border transition-all duration-1000 ${
+        className={`py-20 border-t border-border relative overflow-hidden transition-all duration-1000 ${
           visibleSections.has("who-its-for-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
-        <div className="container">
+        {/* Footballer Shape Background */}
+        <div className="absolute inset-0 z-0 opacity-10">
+          <Image
+            src="/generated/player-action.png"
+            alt=""
+            fill
+            className="object-cover object-center"
+          />
+        </div>
+
+        <div className="container relative z-10">
           <h2 className="text-4xl sm:text-5xl font-bold text-center mb-12 text-glow">
             WHO IT&apos;S FOR
           </h2>
