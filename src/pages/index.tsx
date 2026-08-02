@@ -6,8 +6,10 @@ import { Badge } from "@/components/ui/badge";
 import { SEO } from "@/components/SEO";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Users, Globe, TrendingUp, CheckCircle, Eye, Award, Zap, Target, ChevronRight } from "lucide-react";
+import { ArrowRight, Users, Globe, TrendingUp, CheckCircle, Eye, Award, Zap, Target, ChevronRight, Trophy, Star } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "framer-motion";
 
 interface Player {
   id: number;
@@ -73,58 +75,38 @@ function Counter({ end, duration = 2000 }: { end: number; duration?: number }) {
   return <span>{count.toLocaleString()}</span>;
 }
 
-function useScrollReveal() {
-  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+export default function Home() {
+  const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisibleSections((prev) => new Set(prev).add(entry.target.id));
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: "-50px" }
-    );
-
-    const sections = document.querySelectorAll("[data-scroll-reveal]");
-    sections.forEach((section) => observer.observe(section));
-
-    return () => observer.disconnect();
+    const interval = setInterval(() => {
+      setCurrentPlayerIndex((prev) => (prev + 1) % players.length);
+    }, 3000);
+    return () => clearInterval(interval);
   }, []);
 
-  return visibleSections;
-}
-
-export default function HomePage() {
-  const [expandedCard, setExpandedCard] = useState<number | null>(null);
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const [statsVisible, setStatsVisible] = useState(false);
-  const visibleSections = useScrollReveal();
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const statsSection = document.getElementById("stats-section");
-      if (statsSection) {
-        const rect = statsSection.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.8) {
-          setStatsVisible(true);
-        }
+  // Animation variants for sections
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 60 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
       }
-    };
+    }
+  };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
 
   return (
     <>
@@ -245,12 +227,13 @@ export default function HomePage() {
       </section>
 
       {/* How It Works Section */}
-      <section 
+      <motion.section 
         id="how-it-works-section"
-        data-scroll-reveal
-        className={`py-20 border-t border-border relative overflow-hidden transition-all duration-1000 ${
-          visibleSections.has("how-it-works-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeInUp}
+        className="py-20 border-t border-border relative overflow-hidden"
       >
         {/* Subtle grid pattern background */}
         <div className="absolute inset-0 opacity-[0.02]">
@@ -290,15 +273,16 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* What You Get Section */}
-      <section 
+      <motion.section 
         id="what-you-get-section"
-        data-scroll-reveal
-        className={`py-20 border-t border-border bg-muted/30 relative overflow-hidden transition-all duration-1000 ${
-          visibleSections.has("what-you-get-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeInUp}
+        className="py-20 border-t border-border bg-muted/30 relative overflow-hidden"
       >
         {/* Radial gradient spotlight effect */}
         <div className="absolute inset-0 opacity-20">
@@ -340,14 +324,15 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section 
+      <motion.section 
         id="who-its-for-section"
-        data-scroll-reveal
-        className={`py-20 border-t border-border relative overflow-hidden transition-all duration-1000 ${
-          visibleSections.has("who-its-for-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeInUp}
+        className="py-20 border-t border-border relative overflow-hidden"
       >
         {/* Football field lines pattern */}
         <div className="absolute inset-0 opacity-[0.03]">
@@ -397,15 +382,16 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Technology Partners Section */}
-      <section 
+      <motion.section 
         id="tech-partners-section"
-        data-scroll-reveal
-        className={`py-20 border-t border-border bg-muted/20 relative overflow-hidden transition-all duration-1000 ${
-          visibleSections.has("tech-partners-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeInUp}
+        className="py-20 border-t border-border bg-muted/20 relative overflow-hidden"
       >
         {/* Circuit board pattern */}
         <div className="absolute inset-0 opacity-[0.015]">
@@ -479,7 +465,7 @@ export default function HomePage() {
             Open Trial may utilize industry-standard football technology and analysis platforms to support player evaluation and profile creation. All trademarks remain the property of their respective owners.
           </p>
         </div>
-      </section>
+      </motion.section>
 
       <section 
         id="player-profiles-section"
@@ -905,12 +891,13 @@ export default function HomePage() {
       </section>
 
       {/* Coverage Section */}
-      <section 
+      <motion.section 
         id="coverage-section"
-        data-scroll-reveal
-        className={`py-20 border-t border-border relative overflow-hidden transition-all duration-1000 ${
-          visibleSections.has("coverage-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeInUp}
+        className="py-20 border-t border-border relative overflow-hidden"
       >
         {/* Subtle diagonal stripes */}
         <div className="absolute inset-0 opacity-[0.02]">
@@ -951,10 +938,16 @@ export default function HomePage() {
             </Card>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-b from-background to-muted/50 relative overflow-hidden">
+      <motion.section 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeInUp}
+        className="py-24 bg-gradient-to-b from-background to-muted/50 relative overflow-hidden"
+      >
         {/* Center spotlight effect */}
         <div className="absolute inset-0 opacity-30">
           <div className="absolute inset-0" style={{
@@ -983,7 +976,7 @@ export default function HomePage() {
             </Button>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       <Footer />
     </>
