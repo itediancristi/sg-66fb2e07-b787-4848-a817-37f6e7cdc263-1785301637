@@ -54,7 +54,7 @@ export function Footer() {
             <h3 className="font-semibold mb-4 text-neon-green">Follow Us</h3>
             <div className="flex gap-4">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/open.trial?igsh=dHRsYm5jcWVmcmQ0&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-neon-green transition-colors"
