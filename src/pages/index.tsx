@@ -892,56 +892,6 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Coverage Section */}
-      <motion.section 
-        id="coverage-section"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeInUp}
-        className="py-20 border-t border-border relative overflow-hidden"
-      >
-        {/* Subtle diagonal stripes */}
-        <div className="absolute inset-0 opacity-[0.02]">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'repeating-linear-gradient(45deg, currentColor, currentColor 1px, transparent 1px, transparent 20px)',
-          }} />
-        </div>
-
-        <div className="container relative z-10">
-          <h2 className="text-4xl sm:text-5xl font-bold text-center mb-12 text-glow">
-            EUROPEAN COVERAGE
-          </h2>
-          <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-16">
-            Open Trial connects players with opportunities across Europe&apos;s football landscape. From top-tier clubs to emerging leagues, your profile reaches decision-makers in over 40 countries.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="tactical-card bg-card/50 backdrop-blur border-border hover:border-neon-green/50 transition-all duration-300">
-              <CardContent className="p-8 text-center">
-                <Globe className="w-12 h-12 text-neon-green mx-auto mb-4" />
-                <h3 className="text-2xl font-bold mb-2">40+</h3>
-                <p className="text-muted-foreground">Countries</p>
-              </CardContent>
-            </Card>
-            <Card className="tactical-card bg-card/50 backdrop-blur border-border hover:border-neon-green/50 transition-all duration-300">
-              <CardContent className="p-8 text-center">
-                <Target className="w-12 h-12 text-neon-green mx-auto mb-4" />
-                <h3 className="text-2xl font-bold mb-2">2,500+</h3>
-                <p className="text-muted-foreground">Active Clubs</p>
-              </CardContent>
-            </Card>
-            <Card className="tactical-card bg-card/50 backdrop-blur border-border hover:border-neon-green/50 transition-all duration-300">
-              <CardContent className="p-8 text-center">
-                <Users className="w-12 h-12 text-neon-green mx-auto mb-4" />
-                <h3 className="text-2xl font-bold mb-2">5,000+</h3>
-                <p className="text-muted-foreground">Scouts & Recruiters</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </motion.section>
-
       {/* CTA Section */}
       <motion.section 
         initial="hidden"
