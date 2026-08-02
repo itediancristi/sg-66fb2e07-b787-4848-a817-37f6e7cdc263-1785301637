@@ -44,7 +44,7 @@ export function Footer() {
               <Link href="/regulations" className="block text-sm text-muted-foreground hover:text-neon-green transition-colors">
                 Regulations
               </Link>
-              <Link href="#contact" className="block text-sm text-muted-foreground hover:text-neon-green transition-colors">
+              <Link href="/contact" className="block text-sm text-muted-foreground hover:text-neon-green transition-colors">
                 Contact
               </Link>
             </div>
@@ -63,7 +63,7 @@ export function Footer() {
                 <Instagram size={20} />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/share/198pZbCD3Z/?mibextid=wwXIfr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-neon-green transition-colors"
