@@ -356,7 +356,7 @@ export default function HomePage() {
             <div className="text-muted-foreground/30">|</div>
             <div className="relative h-12 w-32 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
               <Image
-                src="/generated/logo-playmaker.png"
+                src="/logo-playmaker.jpg"
                 alt="Playmaker"
                 fill
                 className="object-contain"
