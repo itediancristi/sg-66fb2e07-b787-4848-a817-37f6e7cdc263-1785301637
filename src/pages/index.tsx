@@ -136,27 +136,22 @@ export default function HomePage() {
       
       <Navigation />
 
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        <div className="absolute inset-0 z-0 animate-scale-in">
+      {/* Hero Section */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        {/* Stadium Background */}
+        <div className="absolute inset-0 z-0">
           <Image
             src="/generated/stadium-hero.png"
             alt="Stadium"
             fill
-            className="object-cover opacity-40"
+            className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 opacity-5">
-            <Image
-              src="/logo.png"
-              alt=""
-              fill
-              className="object-contain"
-            />
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background" />
         </div>
 
-        <div className="container relative z-10 text-center py-20">
+        {/* Hero Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 text-center">
           <Badge className="mb-6 bg-neon-green/10 text-neon-green border-neon-green/30 hover:bg-neon-green/20 text-sm px-4 py-1 animate-fade-up">
             Discover • Analyze • Connect
           </Badge>
