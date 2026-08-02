@@ -345,28 +345,58 @@ export default function HomePage() {
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mb-8">
-            <div className="text-2xl font-bold text-muted-foreground hover:text-foreground transition-colors">
-              Veo
+            <div className="relative h-12 w-24 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
+              <Image
+                src="/generated/logo-veo.png"
+                alt="Veo"
+                fill
+                className="object-contain"
+              />
             </div>
             <div className="text-muted-foreground/30">|</div>
-            <div className="text-2xl font-bold text-muted-foreground hover:text-foreground transition-colors">
-              Playmaker
+            <div className="relative h-12 w-32 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
+              <Image
+                src="/generated/logo-playmaker.png"
+                alt="Playmaker"
+                fill
+                className="object-contain"
+              />
             </div>
             <div className="text-muted-foreground/30">|</div>
-            <div className="text-2xl font-bold text-muted-foreground hover:text-foreground transition-colors">
-              Hudl
+            <div className="relative h-12 w-24 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
+              <Image
+                src="/generated/logo-hudl.png"
+                alt="Hudl"
+                fill
+                className="object-contain"
+              />
             </div>
             <div className="text-muted-foreground/30">|</div>
-            <div className="text-2xl font-bold text-muted-foreground hover:text-foreground transition-colors">
-              Transfermarkt
+            <div className="relative h-12 w-36 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
+              <Image
+                src="/generated/logo-transfermarkt.png"
+                alt="Transfermarkt"
+                fill
+                className="object-contain"
+              />
             </div>
             <div className="text-muted-foreground/30">|</div>
-            <div className="text-2xl font-bold text-muted-foreground hover:text-foreground transition-colors">
-              Wyscout
+            <div className="relative h-12 w-32 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
+              <Image
+                src="/generated/logo-wyscout.png"
+                alt="Wyscout"
+                fill
+                className="object-contain"
+              />
             </div>
             <div className="text-muted-foreground/30">|</div>
-            <div className="text-2xl font-bold text-muted-foreground hover:text-foreground transition-colors">
-              Catapult
+            <div className="relative h-12 w-32 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
+              <Image
+                src="/generated/logo-catapult.png"
+                alt="Catapult"
+                fill
+                className="object-contain"
+              />
             </div>
           </div>
 
