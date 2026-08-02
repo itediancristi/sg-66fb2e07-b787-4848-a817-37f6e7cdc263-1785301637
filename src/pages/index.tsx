@@ -244,13 +244,22 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* How It Works Section */}
       <section 
         id="how-it-works-section"
         data-scroll-reveal
-        className={`py-20 relative transition-all duration-1000 ${
+        className={`py-20 border-t border-border relative overflow-hidden transition-all duration-1000 ${
           visibleSections.has("how-it-works-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
+        {/* Subtle grid pattern background */}
+        <div className="absolute inset-0 opacity-[0.02]">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)',
+            backgroundSize: '40px 40px'
+          }} />
+        </div>
+
         <div className="container relative z-10">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-16 text-glow">
             HOW OPEN TRIAL WORKS
@@ -283,6 +292,24 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* What You Get Section */}
+      <section 
+        id="what-you-get-section"
+        data-scroll-reveal
+        className={`py-20 border-t border-border bg-muted/30 relative overflow-hidden transition-all duration-1000 ${
+          visibleSections.has("what-you-get-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
+        {/* Radial gradient spotlight effect */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0" style={{
+            background: 'radial-gradient(ellipse at top, hsl(var(--neon-green) / 0.1), transparent 50%)'
+          }} />
+        </div>
+
+        <div className="container relative z-10">
+      </section>
+
       <section 
         id="who-its-for-section"
         data-scroll-reveal
@@ -290,6 +317,19 @@ export default function HomePage() {
           visibleSections.has("who-its-for-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
+        {/* Football field lines pattern */}
+        <div className="absolute inset-0 opacity-[0.03]">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(to right, currentColor 2px, transparent 2px),
+              linear-gradient(to bottom, currentColor 2px, transparent 2px),
+              radial-gradient(circle at center, currentColor 2px, transparent 2px)
+            `,
+            backgroundSize: '100px 100px, 100px 100px, 200px 200px',
+            backgroundPosition: 'center, center, center'
+          }} />
+        </div>
+
         <div className="container relative z-10">
           <h2 className="text-4xl sm:text-5xl font-bold text-center mb-12 text-glow">
             WHO IT&apos;S FOR
@@ -328,8 +368,25 @@ export default function HomePage() {
       </section>
 
       {/* Technology Partners Section */}
-      <section className="py-24 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-6">
+      <section 
+        id="tech-partners-section"
+        data-scroll-reveal
+        className={`py-20 border-t border-border bg-muted/20 relative overflow-hidden transition-all duration-1000 ${
+          visibleSections.has("tech-partners-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
+        {/* Circuit board pattern */}
+        <div className="absolute inset-0 opacity-[0.015]">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(90deg, currentColor 1px, transparent 1px),
+              linear-gradient(0deg, currentColor 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px'
+          }} />
+        </div>
+
+        <div className="container relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-4xl font-bold mb-4 text-neon-green">
               Powered By Professional Football Technology
@@ -815,8 +872,33 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Coverage Section */}
+      <section 
+        id="coverage-section"
+        data-scroll-reveal
+        className={`py-20 border-t border-border relative overflow-hidden transition-all duration-1000 ${
+          visibleSections.has("coverage-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
+        {/* Subtle diagonal stripes */}
+        <div className="absolute inset-0 opacity-[0.02]">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'repeating-linear-gradient(45deg, currentColor, currentColor 1px, transparent 1px, transparent 20px)',
+          }} />
+        </div>
+
+        <div className="container relative z-10">
+      </section>
+
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-b from-background to-muted/50">
+      <section className="py-24 bg-gradient-to-b from-background to-muted/50 relative overflow-hidden">
+        {/* Center spotlight effect */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute inset-0" style={{
+            background: 'radial-gradient(circle at center, hsl(var(--neon-green) / 0.15), transparent 60%)'
+          }} />
+        </div>
+
         <div className="container relative z-10 text-center">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-glow">
             READY TO TAKE THE NEXT STEP?
