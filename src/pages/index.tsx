@@ -332,6 +332,50 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Technology Partners Section */}
+      <section className="py-24 bg-muted/30">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h2 className="text-4xl font-bold mb-4 text-neon-green">
+              Powered By Professional Football Technology
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Open Trial utilizes industry-leading technologies for player analysis, video review, performance tracking, and recruitment visibility.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mb-8">
+            <div className="text-2xl font-bold text-muted-foreground hover:text-foreground transition-colors">
+              Veo
+            </div>
+            <div className="text-muted-foreground/30">|</div>
+            <div className="text-2xl font-bold text-muted-foreground hover:text-foreground transition-colors">
+              Playmaker
+            </div>
+            <div className="text-muted-foreground/30">|</div>
+            <div className="text-2xl font-bold text-muted-foreground hover:text-foreground transition-colors">
+              Hudl
+            </div>
+            <div className="text-muted-foreground/30">|</div>
+            <div className="text-2xl font-bold text-muted-foreground hover:text-foreground transition-colors">
+              Transfermarkt
+            </div>
+            <div className="text-muted-foreground/30">|</div>
+            <div className="text-2xl font-bold text-muted-foreground hover:text-foreground transition-colors">
+              Wyscout
+            </div>
+            <div className="text-muted-foreground/30">|</div>
+            <div className="text-2xl font-bold text-muted-foreground hover:text-foreground transition-colors">
+              Catapult
+            </div>
+          </div>
+
+          <p className="text-center text-sm text-muted-foreground max-w-4xl mx-auto italic">
+            Open Trial may utilize industry-standard football technology and analysis platforms to support player evaluation and profile creation. All trademarks remain the property of their respective owners.
+          </p>
+        </div>
+      </section>
+
       <section 
         id="player-profiles-section"
         data-scroll-reveal
@@ -755,13 +799,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section 
-        id="cta-section"
-        data-scroll-reveal
-        className={`py-20 border-t border-border relative overflow-hidden transition-all duration-1000 ${
-          visibleSections.has("cta-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
-      >
+      {/* CTA Section */}
+      <section className="py-24 bg-gradient-to-b from-background to-muted/50">
         <div className="absolute inset-0 opacity-10">
           <Image
             src="/generated/player-action.png"
