@@ -77,6 +77,8 @@ function Counter({ end, duration = 2000 }: { end: number; duration?: number }) {
 
 export default function Home() {
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [expandedCard, setExpandedCard] = useState<number | null>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -93,7 +95,7 @@ export default function Home() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
+        ease: [0.25, 0.1, 0.25, 1]
       }
     }
   };
@@ -162,12 +164,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section 
-        id="stats-section" 
-        data-scroll-reveal
-        className={`py-20 border-t border-border transition-all duration-1000 ${
-          visibleSections.has("stats-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
+      <motion.section 
+        id="stats-section"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeInUp}
+        className="py-20 border-t border-border"
       >
         <div className="container">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-6 text-glow">
@@ -183,8 +186,7 @@ export default function Home() {
               <CardContent className="p-8 text-center">
                 <Users className="w-12 h-12 text-neon-green mx-auto mb-4" />
                 <div className="text-4xl font-bold font-mono mb-2 text-neon-green">
-                  {statsVisible && <Counter end={15000} />}
-                  {!statsVisible && "0"}+
+                  <Counter end={15000} />+
                 </div>
                 <p className="text-muted-foreground">Players Seeking Opportunities</p>
               </CardContent>
@@ -194,8 +196,7 @@ export default function Home() {
               <CardContent className="p-8 text-center">
                 <Target className="w-12 h-12 text-neon-green mx-auto mb-4" />
                 <div className="text-4xl font-bold font-mono mb-2 text-neon-green">
-                  {statsVisible && <Counter end={2500} />}
-                  {!statsVisible && "0"}+
+                  <Counter end={2500} />+
                 </div>
                 <p className="text-muted-foreground">Clubs Recruiting Talent</p>
               </CardContent>
@@ -205,8 +206,7 @@ export default function Home() {
               <CardContent className="p-8 text-center">
                 <Globe className="w-12 h-12 text-neon-green mx-auto mb-4" />
                 <div className="text-4xl font-bold font-mono mb-2 text-neon-green">
-                  {statsVisible && <Counter end={45} />}
-                  {!statsVisible && "0"}+
+                  <Counter end={45} />+
                 </div>
                 <p className="text-muted-foreground">Countries Reached</p>
               </CardContent>
@@ -216,15 +216,14 @@ export default function Home() {
               <CardContent className="p-8 text-center">
                 <TrendingUp className="w-12 h-12 text-neon-green mx-auto mb-4" />
                 <div className="text-4xl font-bold font-mono mb-2 text-neon-green">
-                  {statsVisible && <Counter end={8700} />}
-                  {!statsVisible && "0"}+
+                  <Counter end={8700} />+
                 </div>
                 <p className="text-muted-foreground">Profiles Created</p>
               </CardContent>
             </Card>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* How It Works Section */}
       <motion.section 
@@ -467,12 +466,13 @@ export default function Home() {
         </div>
       </motion.section>
 
-      <section 
+      <motion.section 
         id="player-profiles-section"
-        data-scroll-reveal
-        className={`py-20 relative overflow-hidden transition-all duration-1000 ${
-          visibleSections.has("player-profiles-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeInUp}
+        className="py-20 relative overflow-hidden"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-background to-card/30"></div>
         <div className="container relative z-10">
@@ -514,14 +514,15 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section 
+      <motion.section 
         id="why-open-trial-section"
-        data-scroll-reveal
-        className={`py-20 border-t border-border transition-all duration-1000 ${
-          visibleSections.has("why-open-trial-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeInUp}
+        className="py-20 border-t border-border"
       >
         <div className="container">
           <h2 className="text-4xl sm:text-5xl font-bold text-center mb-16 text-glow">
@@ -566,14 +567,15 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section 
+      <motion.section 
         id="testimonials-section"
-        data-scroll-reveal
-        className={`py-20 relative overflow-hidden transition-all duration-1000 ${
-          visibleSections.has("testimonials-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeInUp}
+        className="py-20 relative overflow-hidden"
       >
         <div className="container">
           <h2 className="text-4xl sm:text-5xl font-bold text-center mb-12 text-glow">
@@ -620,14 +622,15 @@ export default function Home() {
             </Card>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section 
+      <motion.section 
         id="trust-bar-section"
-        data-scroll-reveal
-        className={`py-12 border-t border-border bg-card/30 backdrop-blur overflow-hidden transition-all duration-1000 ${
-          visibleSections.has("trust-bar-section") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeInUp}
+        className="py-12 border-t border-border bg-card/30 backdrop-blur overflow-hidden"
       >
         <div className="container">
           <p className="text-center text-sm text-muted-foreground mb-6 md:mb-8 tracking-wide">
@@ -888,7 +891,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Coverage Section */}
       <motion.section 
