@@ -347,7 +347,7 @@ export default function HomePage() {
           <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mb-8">
             <div className="relative h-12 w-24 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
               <Image
-                src="/generated/logo-veo.png"
+                src="/logo-veo.png"
                 alt="Veo"
                 fill
                 className="object-contain"
@@ -363,10 +363,10 @@ export default function HomePage() {
               />
             </div>
             <div className="text-muted-foreground/30">|</div>
-            <div className="relative h-12 w-24 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
+            <div className="relative h-12 w-32 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
               <Image
-                src="/generated/logo-hudl.png"
-                alt="Hudl"
+                src="/logo-hudl-wyscout.jpg"
+                alt="Hudl Wyscout"
                 fill
                 className="object-contain"
               />
@@ -374,7 +374,7 @@ export default function HomePage() {
             <div className="text-muted-foreground/30">|</div>
             <div className="relative h-12 w-36 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
               <Image
-                src="/generated/logo-transfermarkt.png"
+                src="/logo-transfermarkt.jpg"
                 alt="Transfermarkt"
                 fill
                 className="object-contain"
@@ -383,16 +383,7 @@ export default function HomePage() {
             <div className="text-muted-foreground/30">|</div>
             <div className="relative h-12 w-32 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
               <Image
-                src="/generated/logo-wyscout.png"
-                alt="Wyscout"
-                fill
-                className="object-contain"
-              />
-            </div>
-            <div className="text-muted-foreground/30">|</div>
-            <div className="relative h-12 w-32 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
-              <Image
-                src="/generated/logo-catapult.png"
+                src="/logo-catapult.jpg"
                 alt="Catapult"
                 fill
                 className="object-contain"
