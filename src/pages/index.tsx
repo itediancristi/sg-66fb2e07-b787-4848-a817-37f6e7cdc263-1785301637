@@ -109,6 +109,30 @@ export default function Home() {
     }
   };
 
+  // Hero-specific animation variants
+  const heroVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    }
+  };
+
+  const heroStagger = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2
+      }
+    }
+  };
+
   return (
     <>
       <SEO
@@ -134,33 +158,49 @@ export default function Home() {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 text-center">
-          <Badge className="mb-6 bg-neon-green/10 text-neon-green border-neon-green/30 hover:bg-neon-green/20 text-sm px-4 py-1 animate-fade-up">
-            Discover • Analyze • Connect
-          </Badge>
+        <motion.div 
+          initial="hidden"
+          animate="visible"
+          variants={heroStagger}
+          className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20 text-center"
+        >
+          <motion.div variants={heroVariants}>
+            <Badge className="mb-4 sm:mb-6 bg-neon-green/10 text-neon-green border-neon-green/30 hover:bg-neon-green/20 text-xs sm:text-sm px-3 sm:px-4 py-1">
+              Discover • Analyze • Connect
+            </Badge>
+          </motion.div>
           
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 animate-fade-up-delay-1 text-glow tracking-tight">
+          <motion.h1 
+            variants={heroVariants}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 text-glow tracking-tight leading-tight"
+          >
             TALENT MEETS<br />OPPORTUNITY
-          </h1>
+          </motion.h1>
           
-          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-10 animate-fade-up-delay-2">
+          <motion.p 
+            variants={heroVariants}
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8 sm:mb-10 px-4"
+          >
             Open Trial helps football players showcase their talent, gain visibility, and connect with clubs, scouts, and recruiters worldwide.
-          </p>
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up-delay-3">
-            <Button asChild size="lg" className="bg-neon-green text-background hover:bg-neon-green/90 glow-green group text-base px-8">
+          <motion.div 
+            variants={heroVariants}
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4"
+          >
+            <Button asChild size="lg" className="bg-neon-green text-background hover:bg-neon-green/90 glow-green group text-sm sm:text-base px-6 sm:px-8 w-full sm:w-auto">
               <Link href="/apply">
                 Apply Now
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-neon-green/30 text-neon-green hover:bg-neon-green/10 text-base px-8">
+            <Button asChild size="lg" variant="outline" className="border-neon-green/30 text-neon-green hover:bg-neon-green/10 text-sm sm:text-base px-6 sm:px-8 w-full sm:w-auto">
               <Link href="/how-it-works">
                 Explore Opportunities
               </Link>
             </Button>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       <motion.section 
