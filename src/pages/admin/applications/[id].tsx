@@ -154,7 +154,7 @@ export default function ApplicationDetail() {
             </div>
             <div className="flex items-center gap-3">
               {getStatusBadge(application.status)}
-              {application.status === "approved" && application.status !== "published" && (
+              {application.status === "approved" && (
                 <Button onClick={() => setShowPublishDialog(true)} size="sm">
                   <Upload className="w-4 h-4 mr-2" />
                   Publish Profile
@@ -266,11 +266,11 @@ export default function ApplicationDetail() {
                     </a>
                   </div>
                 )}
-                {application.documents && application.documents.length > 0 && (
+                {application.documents_url && application.documents_url.length > 0 && (
                   <div>
                     <p className="text-sm text-muted-foreground mb-2">Documents</p>
                     <div className="space-y-2">
-                      {application.documents.map((doc: string, idx: number) => (
+                      {application.documents_url.map((doc: string, idx: number) => (
                         <a
                           key={idx}
                           href={doc}
