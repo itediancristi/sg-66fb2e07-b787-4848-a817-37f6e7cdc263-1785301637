@@ -16,8 +16,9 @@ Architecture: Applications write to Supabase â†’ Admin dashboard reads/manages â
 
 ## Checklist
 - [x] Create database schema (applications, admin_users, player_profiles tables)
-- [x] Set up Supabase Storage buckets for videos and documents
-- [ ] Configure RLS policies for admin-only access
+- [x] Configure RLS policies for admin-only access
+- [x] Create admin service layer
+- [ ] Set up Supabase Storage buckets for videos and documents
 - [ ] Create admin authentication system
 - [ ] Build admin dashboard layout with navigation
 - [ ] Create applications table view with filters and search
