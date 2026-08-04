@@ -140,7 +140,7 @@ export default function Apply() {
           playing_style: formData.playingStyle || null,
           video_url: videoUrl,
           photo_url: photoUrl,
-          documents_url: documentUrls,
+          documents_url: documentUrls as string[],
           status: "pending",
         });
 
