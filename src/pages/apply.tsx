@@ -7,9 +7,12 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
-import { Upload, CheckCircle } from "lucide-react";
+import { Upload, CheckCircle, AlertCircle } from "lucide-react";
 import { SEO } from "@/components/SEO";
+import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
 import { supabase } from "@/integrations/supabase/client";
 import { adminService } from "@/services/adminService";
 
@@ -257,12 +260,12 @@ export default function Apply() {
               <CardContent className="p-8 md:p-12">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-foreground">Name *</Label>
+                    <Label htmlFor="fullName" className="text-foreground">Full Name *</Label>
                     <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
+                      id="fullName"
+                      name="fullName"
+                      value={formData.fullName}
+                      onChange={handleInputChange}
                       required
                       className="bg-background border-border focus:border-neon-green"
                       placeholder="Your full name"
@@ -271,16 +274,45 @@ export default function Apply() {
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="age" className="text-foreground">Age *</Label>
+                      <Label htmlFor="email" className="text-foreground">Email *</Label>
                       <Input
-                        id="age"
-                        name="age"
-                        type="number"
-                        value={formData.age}
-                        onChange={handleChange}
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
                         required
                         className="bg-background border-border focus:border-neon-green"
-                        placeholder="Age"
+                        placeholder="your.email@example.com"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="phone" className="text-foreground">Phone *</Label>
+                      <Input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        required
+                        className="bg-background border-border focus:border-neon-green"
+                        placeholder="+1234567890"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="dateOfBirth" className="text-foreground">Date of Birth *</Label>
+                      <Input
+                        id="dateOfBirth"
+                        name="dateOfBirth"
+                        type="date"
+                        value={formData.dateOfBirth}
+                        onChange={handleInputChange}
+                        required
+                        className="bg-background border-border focus:border-neon-green"
                       />
                     </div>
 
@@ -290,7 +322,7 @@ export default function Apply() {
                         id="nationality"
                         name="nationality"
                         value={formData.nationality}
-                        onChange={handleChange}
+                        onChange={handleInputChange}
                         required
                         className="bg-background border-border focus:border-neon-green"
                         placeholder="Your nationality"
@@ -301,126 +333,163 @@ export default function Apply() {
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="position" className="text-foreground">Position *</Label>
-                      <select
-                        id="position"
-                        name="position"
-                        value={formData.position}
-                        onChange={handleChange}
-                        required
-                        className="w-full h-10 px-3 py-2 bg-background border border-border rounded-md text-foreground focus:border-neon-green focus:outline-none focus:ring-1 focus:ring-neon-green"
-                      >
-                        <option value="">Select position</option>
-                        <option value="Goalkeeper">Goalkeeper</option>
-                        <option value="Defender">Defender</option>
-                        <option value="Midfielder">Midfielder</option>
-                        <option value="Forward">Forward</option>
-                        <option value="Winger">Winger</option>
-                        <option value="Striker">Striker</option>
-                      </select>
+                      <Select value={formData.position} onValueChange={(value) => handleSelectChange("position", value)}>
+                        <SelectTrigger className="bg-background border-border">
+                          <SelectValue placeholder="Select position" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="Goalkeeper">Goalkeeper</SelectItem>
+                          <SelectItem value="Defender">Defender</SelectItem>
+                          <SelectItem value="Midfielder">Midfielder</SelectItem>
+                          <SelectItem value="Forward">Forward</SelectItem>
+                          <SelectItem value="Winger">Winger</SelectItem>
+                          <SelectItem value="Striker">Striker</SelectItem>
+                        </SelectContent>
+                      </Select>
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="currentClub" className="text-foreground">Current Club *</Label>
+                      <Label htmlFor="currentClub" className="text-foreground">Current Club</Label>
                       <Input
                         id="currentClub"
                         name="currentClub"
                         value={formData.currentClub}
-                        onChange={handleChange}
-                        required
+                        onChange={handleInputChange}
                         className="bg-background border-border focus:border-neon-green"
                         placeholder="Club name or Free Agent"
                       />
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="grid md:grid-cols-3 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="whatsapp" className="text-foreground">WhatsApp *</Label>
+                      <Label htmlFor="height" className="text-foreground">Height (cm) *</Label>
                       <Input
-                        id="whatsapp"
-                        name="whatsapp"
-                        type="tel"
-                        value={formData.whatsapp}
-                        onChange={handleChange}
+                        id="height"
+                        name="height"
+                        type="number"
+                        value={formData.height}
+                        onChange={handleInputChange}
                         required
                         className="bg-background border-border focus:border-neon-green"
-                        placeholder="+1234567890"
+                        placeholder="180"
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="email" className="text-foreground">Email *</Label>
+                      <Label htmlFor="weight" className="text-foreground">Weight (kg) *</Label>
                       <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
+                        id="weight"
+                        name="weight"
+                        type="number"
+                        value={formData.weight}
+                        onChange={handleInputChange}
                         required
                         className="bg-background border-border focus:border-neon-green"
-                        placeholder="your.email@example.com"
+                        placeholder="75"
                       />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="preferredFoot" className="text-foreground">Preferred Foot *</Label>
+                      <Select value={formData.preferredFoot} onValueChange={(value) => handleSelectChange("preferredFoot", value)}>
+                        <SelectTrigger className="bg-background border-border">
+                          <SelectValue placeholder="Select foot" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="right">Right</SelectItem>
+                          <SelectItem value="left">Left</SelectItem>
+                          <SelectItem value="both">Both</SelectItem>
+                        </SelectContent>
+                      </Select>
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="transfermarkt" className="text-foreground">Transfermarkt Profile (Optional)</Label>
-                    <Input
-                      id="transfermarkt"
-                      name="transfermarkt"
-                      type="url"
-                      value={formData.transfermarkt}
-                      onChange={handleChange}
-                      className="bg-background border-border focus:border-neon-green"
-                      placeholder="https://www.transfermarkt.com/..."
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="videoLink" className="text-foreground">Video Link *</Label>
-                    <Input
-                      id="videoLink"
-                      name="videoLink"
-                      type="url"
-                      value={formData.videoLink}
-                      onChange={handleChange}
-                      required
-                      className="bg-background border-border focus:border-neon-green"
-                      placeholder="YouTube, Vimeo, or other video link"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="message" className="text-foreground">Message *</Label>
+                    <Label htmlFor="careerHighlights" className="text-foreground">Career Highlights</Label>
                     <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={6}
+                      id="careerHighlights"
+                      name="careerHighlights"
+                      value={formData.careerHighlights}
+                      onChange={handleInputChange}
+                      rows={3}
                       className="bg-background border-border focus:border-neon-green resize-none"
-                      placeholder="Tell us about yourself, your career, achievements, and goals..."
+                      placeholder="Describe your career highlights..."
                     />
                   </div>
 
-                  {status === "error" && (
-                    <div className="flex items-center gap-3 p-4 bg-destructive/10 border border-destructive/20 rounded-lg">
-                      <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0" />
-                      <p className="text-sm text-destructive">
-                        {errorMessage || "Failed to submit application. Please try again."}
-                      </p>
+                  <div className="space-y-2">
+                    <Label htmlFor="achievements" className="text-foreground">Achievements</Label>
+                    <Textarea
+                      id="achievements"
+                      name="achievements"
+                      value={formData.achievements}
+                      onChange={handleInputChange}
+                      rows={3}
+                      className="bg-background border-border focus:border-neon-green resize-none"
+                      placeholder="List your achievements..."
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="playingStyle" className="text-foreground">Playing Style</Label>
+                    <Textarea
+                      id="playingStyle"
+                      name="playingStyle"
+                      value={formData.playingStyle}
+                      onChange={handleInputChange}
+                      rows={3}
+                      className="bg-background border-border focus:border-neon-green resize-none"
+                      placeholder="Describe your playing style..."
+                    />
+                  </div>
+
+                  <div className="space-y-4 border-t border-border pt-6">
+                    <h3 className="text-lg font-semibold">Media Upload</h3>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="photo">Player Photo</Label>
+                      <Input
+                        id="photo"
+                        type="file"
+                        accept="image/*"
+                        onChange={(e) => setPhotoFile(e.target.files?.[0] || null)}
+                        className="bg-background border-border"
+                      />
                     </div>
-                  )}
+
+                    <div className="space-y-2">
+                      <Label htmlFor="video">Highlight Video</Label>
+                      <Input
+                        id="video"
+                        type="file"
+                        accept="video/*"
+                        onChange={(e) => setVideoFile(e.target.files?.[0] || null)}
+                        className="bg-background border-border"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="documents">Documents (CV, Certificates, etc.)</Label>
+                      <Input
+                        id="documents"
+                        type="file"
+                        multiple
+                        accept=".pdf,.doc,.docx"
+                        onChange={(e) => setDocumentFiles(Array.from(e.target.files || []))}
+                        className="bg-background border-border"
+                      />
+                    </div>
+                  </div>
 
                   <div className="text-center pt-4">
                     <Button
                       type="submit"
                       size="lg"
-                      disabled={status === "loading"}
+                      disabled={loading}
                       className="bg-neon-green text-background hover:bg-neon-green/90 glow-green-strong text-base px-12"
                     >
-                      {status === "loading" ? "Submitting..." : "Submit Application"}
+                      {loading ? "Submitting..." : "Submit Application"}
                     </Button>
                   </div>
                 </form>
