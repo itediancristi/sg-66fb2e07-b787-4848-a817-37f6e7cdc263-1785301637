@@ -22,10 +22,10 @@ Architecture: Applications write to Supabase â†’ Admin dashboard reads/manages â
 - [x] Create admin authentication system
 - [x] Build admin dashboard layout with navigation
 - [x] Create applications table view with filters and search
-- [ ] Add application detail view with all player data
-- [ ] Implement status management (Pending, Reviewed, Approved, Rejected, Published)
-- [ ] Add one-click publish functionality
-- [ ] Update Apply form to save to Supabase
+- [x] Add application detail view with all player data
+- [x] Implement status management (Pending, Reviewed, Approved, Rejected, Published)
+- [x] Add one-click publish functionality
+- [x] Update Apply form to save to Supabase
 - [ ] Test end-to-end flow
 
 ## Acceptance

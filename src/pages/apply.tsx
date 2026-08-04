@@ -1,81 +1,163 @@
-import { Navigation } from "@/components/Navigation";
-import { Footer } from "@/components/Footer";
+"use client";
+
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { useToast } from "@/hooks/use-toast";
+import { Upload, CheckCircle } from "lucide-react";
 import { SEO } from "@/components/SEO";
-import { CheckCircle, AlertCircle } from "lucide-react";
-import { useState } from "react";
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { supabase } from "@/integrations/supabase/client";
+import { adminService } from "@/services/adminService";
 
-export default function ApplyPage() {
+interface FormData {
+  fullName: string;
+  email: string;
+  phone: string;
+  dateOfBirth: string;
+  nationality: string;
+  position: string;
+  height: string;
+  weight: string;
+  preferredFoot: string;
+  currentClub: string;
+  careerHighlights: string;
+  achievements: string;
+  playingStyle: string;
+}
+
+export default function Apply() {
+  const { toast } = useToast();
+  const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
-  const [errorMessage, setErrorMessage] = useState("");
-  const { executeRecaptcha } = useGoogleReCaptcha();
+  const [videoFile, setVideoFile] = useState<File | null>(null);
+  const [photoFile, setPhotoFile] = useState<File | null>(null);
+  const [documentFiles, setDocumentFiles] = useState<File[]>([]);
   
-  const [formData, setFormData] = useState({
-    name: "",
-    age: "",
+  const [formData, setFormData] = useState<FormData>({
+    fullName: "",
+    email: "",
+    phone: "",
+    dateOfBirth: "",
     nationality: "",
     position: "",
+    height: "",
+    weight: "",
+    preferredFoot: "",
     currentClub: "",
-    whatsapp: "",
-    email: "",
-    transfermarkt: "",
-    videoLink: "",
-    message: "",
+    careerHighlights: "",
+    achievements: "",
+    playingStyle: "",
   });
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSelectChange = (name: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const uploadFile = async (file: File, bucket: string, path: string): Promise<string> => {
+    const { data, error } = await supabase.storage
+      .from(bucket)
+      .upload(path, file);
+
+    if (error) throw error;
+
+    const { data: { publicUrl } } = supabase.storage
+      .from(bucket)
+      .getPublicUrl(path);
+
+    return publicUrl;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!executeRecaptcha) {
-      setStatus("error");
-      setErrorMessage("reCAPTCHA not loaded. Please refresh the page.");
-      return;
-    }
-
-    setStatus("loading");
-    setErrorMessage("");
+    setLoading(true);
 
     try {
-      const recaptchaToken = await executeRecaptcha("apply_form");
+      const applicationId = crypto.randomUUID();
 
-      const response = await fetch("/api/apply", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...formData,
-          recaptchaToken
-        }),
-      });
+      // Upload files if provided
+      let videoUrl = null;
+      let photoUrl = null;
+      const documentUrls: string[] = [];
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to submit application");
+      if (videoFile) {
+        videoUrl = await uploadFile(
+          videoFile,
+          "player-videos",
+          `${applicationId}/${videoFile.name}`
+        );
       }
 
-      setSubmitted(true);
-      setStatus("idle");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } catch (error) {
-      setStatus("error");
-      setErrorMessage(error instanceof Error ? error.message : "Failed to submit application");
-    }
-  };
+      if (photoFile) {
+        photoUrl = await uploadFile(
+          photoFile,
+          "player-photos",
+          `${applicationId}/${photoFile.name}`
+        );
+      }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+      if (documentFiles.length > 0) {
+        for (const doc of documentFiles) {
+          const url = await uploadFile(
+            doc,
+            "player-documents",
+            `${applicationId}/${doc.name}`
+          );
+          documentUrls.push(url);
+        }
+      }
+
+      // Insert application into database
+      const { error } = await supabase
+        .from("applications")
+        .insert({
+          id: applicationId,
+          full_name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          date_of_birth: formData.dateOfBirth,
+          nationality: formData.nationality,
+          position: formData.position,
+          height: parseInt(formData.height),
+          weight: parseInt(formData.weight),
+          preferred_foot: formData.preferredFoot,
+          current_club: formData.currentClub || null,
+          career_highlights: formData.careerHighlights || null,
+          achievements: formData.achievements || null,
+          playing_style: formData.playingStyle || null,
+          video_url: videoUrl,
+          photo_url: photoUrl,
+          documents: documentUrls.length > 0 ? documentUrls : null,
+          status: "pending",
+        });
+
+      if (error) throw error;
+
+      toast({
+        title: "Success!",
+        description: "Your application has been submitted successfully. We'll review it and get back to you soon.",
+      });
+
+      setSubmitted(true);
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: error.message || "Failed to submit application. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
