@@ -136,11 +136,11 @@ export default function Apply() {
           preferred_foot: formData.preferredFoot,
           current_club: formData.currentClub || null,
           career_highlights: formData.careerHighlights || null,
-          achievements: formData.achievements || null,
+          achievements: formData.achievements ? [formData.achievements] : null,
           playing_style: formData.playingStyle || null,
           video_url: videoUrl,
           photo_url: photoUrl,
-          documents_url: documentUrls as string[],
+          documents_url: documentUrls.length > 0 ? documentUrls : null,
           status: "pending",
         });
 
