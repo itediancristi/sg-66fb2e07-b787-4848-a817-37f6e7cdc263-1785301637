@@ -65,20 +65,6 @@ export default function Apply() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const uploadFile = async (file: File, bucket: string, path: string): Promise<string> => {
-    const { data, error } = await supabase.storage
-      .from(bucket)
-      .upload(path, file);
-
-    if (error) throw error;
-
-    const { data: { publicUrl } } = supabase.storage
-      .from(bucket)
-      .getPublicUrl(path);
-
-    return publicUrl;
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
