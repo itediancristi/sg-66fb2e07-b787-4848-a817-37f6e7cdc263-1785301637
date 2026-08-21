@@ -13,8 +13,6 @@ import { Upload, CheckCircle, AlertCircle } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { supabase } from "@/integrations/supabase/client";
-import { adminService } from "@/services/adminService";
 
 interface FormData {
   fullName: string;
@@ -86,72 +84,37 @@ export default function Apply() {
     setLoading(true);
 
     try {
-      const applicationId = crypto.randomUUID();
+      const form = e.target as HTMLFormElement;
+      const formDataToSubmit = new FormData(form);
 
-      // Upload files if provided
-      let videoUrl = null;
-      let photoUrl = null;
-      const documentUrls: string[] = [];
-
+      // Add file inputs to FormData if they exist
       if (videoFile) {
-        videoUrl = await uploadFile(
-          videoFile,
-          "player-videos",
-          `${applicationId}/${videoFile.name}`
-        );
+        formDataToSubmit.append("video", videoFile);
       }
-
       if (photoFile) {
-        photoUrl = await uploadFile(
-          photoFile,
-          "player-photos",
-          `${applicationId}/${photoFile.name}`
-        );
+        formDataToSubmit.append("photo", photoFile);
       }
-
       if (documentFiles.length > 0) {
-        for (const doc of documentFiles) {
-          const url = await uploadFile(
-            doc,
-            "player-documents",
-            `${applicationId}/${doc.name}`
-          );
-          documentUrls.push(url);
-        }
+        documentFiles.forEach((doc, index) => {
+          formDataToSubmit.append(`document_${index}`, doc);
+        });
       }
 
-      // Insert application into database
-      const { error } = await supabase
-        .from("applications")
-        .insert({
-          id: applicationId,
-          full_name: formData.fullName,
-          email: formData.email,
-          phone: formData.phone,
-          date_of_birth: formData.dateOfBirth,
-          nationality: formData.nationality,
-          position: formData.position,
-          height: parseInt(formData.height),
-          weight: parseInt(formData.weight),
-          preferred_foot: formData.preferredFoot,
-          current_club: formData.currentClub || null,
-          career_highlights: formData.careerHighlights || null,
-          achievements: formData.achievements ? [formData.achievements] : null,
-          playing_style: formData.playingStyle || null,
-          video_url: videoUrl,
-          photo_url: photoUrl,
-          documents_url: documentUrls.length > 0 ? documentUrls : null,
-          status: "pending",
-        });
-
-      if (error) throw error;
-
-      toast({
-        title: "Success!",
-        description: "Your application has been submitted successfully. We'll review it and get back to you soon.",
+      const response = await fetch("https://formspree.io/f/mkjwejdv", {
+        method: "POST",
+        body: formDataToSubmit,
+        headers: { Accept: "application/json" },
       });
 
-      setSubmitted(true);
+      if (response.ok) {
+        toast({
+          title: "Success!",
+          description: "Your application has been submitted successfully. We'll review it and get back to you soon.",
+        });
+        setSubmitted(true);
+      } else {
+        throw new Error("Failed to submit application");
+      }
     } catch (error: any) {
       toast({
         title: "Error",
