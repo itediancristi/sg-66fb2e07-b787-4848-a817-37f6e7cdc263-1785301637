@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SEO } from "@/components/SEO";
+import { useLanguage } from "@/contexts/LanguageContext";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Users, Globe, TrendingUp, CheckCircle, Eye, Award, Zap, Target, ChevronRight, Trophy, Star } from "lucide-react";
@@ -34,6 +35,7 @@ function Counter({ end, duration = 2000 }: { end: number; duration?: number }) {
 
 export default function Home() {
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
+  const { t, language } = useLanguage();
 
   // Animation variants for sections
   const fadeInUp = {
@@ -83,9 +85,10 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Open Trial - Talent Meets Opportunity"
-        description="Connect football players with clubs, scouts, and recruiters worldwide. Professional presentation, performance analysis, and direct opportunities."
+        title={language === "ro" ? "Open Trial - Talent Meets Opportunity" : "Open Trial - Talent Meets Opportunity"}
+        description={language === "ro" ? "Conectează jucători de fotbal cu cluburi, scouteri și oportunități în întreaga lume." : "Connect football players with clubs, scouts, and recruiters worldwide."}
         image="/og-image.png"
+        language={language}
       />
       
       <Navigation />
@@ -128,7 +131,7 @@ export default function Home() {
             variants={heroVariants}
             className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8 sm:mb-10 px-4"
           >
-            Open Trial helps football players showcase their talent, gain visibility, and connect with clubs, scouts, and recruiters worldwide.
+            {t("hero.subtitle")}
           </motion.p>
 
           <motion.div 
@@ -137,13 +140,13 @@ export default function Home() {
           >
             <Button asChild size="lg" className="bg-neon-green text-background hover:bg-neon-green/90 glow-green group text-sm sm:text-base px-6 sm:px-8 w-full sm:w-auto">
               <Link href="/apply">
-                Apply Now
+                {t("hero.cta")}
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-neon-green/30 text-neon-green hover:bg-neon-green/10 text-sm sm:text-base px-6 sm:px-8 w-full sm:w-auto">
               <Link href="/how-it-works">
-                Explore Opportunities
+                {t("hero.learn_more")}
               </Link>
             </Button>
           </motion.div>
@@ -161,13 +164,13 @@ export default function Home() {
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <Badge className="mb-4 bg-neon-green/20 text-neon-green border-neon-green/40 hover:bg-neon-green/30 text-sm px-4 py-1.5">
-              Now in Early Access
+              {t("early.badge")}
             </Badge>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-glow">
-              Now in Early Access.
+              {t("early.title")}
             </h2>
             <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-              Open Trial just launched. We're onboarding our first players and clubs — join now and be part of the founding group shaping the platform.
+              {t("early.subtitle")}
             </p>
           </div>
         </div>
@@ -187,7 +190,9 @@ export default function Home() {
           </h2>
           
           <p className="text-lg sm:text-xl text-muted-foreground text-center max-w-3xl mx-auto mb-16">
-            Thousands of football players are overlooked every season due to limited visibility, lack of connections, and inaccessible recruitment networks. Open Trial exists to bridge that gap.
+            {language === "ro" 
+              ? "Mii de jucători de fotbal sunt trecuți cu vederea în fiecare sezon din cauza vizibilității limitate, lipsei de conexiuni și rețelelor de recrutare inaccesibile. Open Trial există pentru a reduce acest decalaj."
+              : "Thousands of football players are overlooked every season due to limited visibility, lack of connections, and inaccessible recruitment networks. Open Trial exists to bridge that gap."}
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -197,7 +202,7 @@ export default function Home() {
                 <div className="text-4xl font-bold font-mono mb-2 text-neon-green">
                   <Counter end={250} />+
                 </div>
-                <p className="text-muted-foreground">Players Seeking Opportunities</p>
+                <p className="text-muted-foreground">{t("stats.players")}</p>
               </CardContent>
             </Card>
 
@@ -207,7 +212,7 @@ export default function Home() {
                 <div className="text-4xl font-bold font-mono mb-2 text-neon-green">
                   <Counter end={15} />+
                 </div>
-                <p className="text-muted-foreground">Clubs Recruiting Talent</p>
+                <p className="text-muted-foreground">{t("stats.clubs")}</p>
               </CardContent>
             </Card>
 
@@ -217,7 +222,7 @@ export default function Home() {
                 <div className="text-4xl font-bold font-mono mb-2 text-neon-green">
                   <Counter end={7} />+
                 </div>
-                <p className="text-muted-foreground">Countries Reached</p>
+                <p className="text-muted-foreground">{t("stats.countries")}</p>
               </CardContent>
             </Card>
 
@@ -227,7 +232,7 @@ export default function Home() {
                 <div className="text-4xl font-bold font-mono mb-2 text-neon-green">
                   <Counter end={176} />+
                 </div>
-                <p className="text-muted-foreground">Profiles Created</p>
+                <p className="text-muted-foreground">{t("stats.trials")}</p>
               </CardContent>
             </Card>
           </div>
@@ -253,15 +258,15 @@ export default function Home() {
 
         <div className="container relative z-10">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-16 text-glow">
-            HOW OPEN TRIAL WORKS
+            {t("how.title").toUpperCase()}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { step: "01", title: "Create Profile", desc: "Build a professional football profile.", icon: Users },
-              { step: "02", title: "Showcase Talent", desc: "Upload videos and achievements.", icon: Eye },
-              { step: "03", title: "Get Analyzed", desc: "Receive performance insights.", icon: Award },
-              { step: "04", title: "Connect", desc: "Get discovered by clubs and scouts.", icon: Zap },
+              { step: "01", title: t("how.step1.title"), desc: t("how.step1.desc"), icon: Users },
+              { step: "02", title: t("how.step2.title"), desc: t("how.step2.desc"), icon: Eye },
+              { step: "03", title: t("how.step3.title"), desc: t("how.step3.desc"), icon: Award },
+              { step: "04", title: t("how.step4.title"), desc: t("how.step4.desc"), icon: Zap },
             ].map((item, idx) => (
               <Card 
                 key={idx}
@@ -301,25 +306,25 @@ export default function Home() {
 
         <div className="container relative z-10">
           <h2 className="text-4xl sm:text-5xl font-bold text-center mb-16 text-glow">
-            WHAT YOU GET
+            {language === "ro" ? "CE OBȚII" : "WHAT YOU GET"}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 icon: Users,
-                title: "Professional Profile",
-                desc: "A comprehensive profile showcasing your skills, experience, and achievements.",
+                title: language === "ro" ? "Profil Profesional" : "Professional Profile",
+                desc: language === "ro" ? "Un profil cuprinzător care prezintă abilitățile, experiența și realizările tale." : "A comprehensive profile showcasing your skills, experience, and achievements.",
               },
               {
                 icon: Eye,
-                title: "Visibility",
-                desc: "Get discovered by clubs, scouts, and recruiters actively searching for talent.",
+                title: language === "ro" ? "Vizibilitate" : "Visibility",
+                desc: language === "ro" ? "Fii descoperit de cluburi, scouteri și recrutori care caută talente activ." : "Get discovered by clubs, scouts, and recruiters actively searching for talent.",
               },
               {
                 icon: Award,
-                title: "Performance Insights",
-                desc: "Data-driven analysis that highlights your strengths and potential.",
+                title: language === "ro" ? "Analiză Performanță" : "Performance Insights",
+                desc: language === "ro" ? "Analiză bazată pe date care evidențiază punctele tale forte și potențialul." : "Data-driven analysis that highlights your strengths and potential.",
               },
             ].map((item, idx) => (
               <Card key={idx} className="tactical-card bg-card/50 backdrop-blur border-border hover:border-neon-green/50 transition-all duration-300">
@@ -357,17 +362,17 @@ export default function Home() {
 
         <div className="container relative z-10">
           <h2 className="text-4xl sm:text-5xl font-bold text-center mb-12 text-glow">
-            WHO IT&apos;S FOR
+            {language === "ro" ? "PENTRU CINE ESTE" : "WHO IT'S FOR"}
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: "Amateur Players", desc: "Starting your professional journey with ambition and drive.", emoji: "⚽" },
-              { title: "Semi-Professional Players", desc: "Ready to take the next step in your career.", emoji: "⚽" },
-              { title: "Professional Players", desc: "Seeking new opportunities and career advancement.", emoji: "⚽" },
-              { title: "Academy Graduates", desc: "Transitioning from youth football to professional level.", emoji: "⚽" },
-              { title: "Free Agents", desc: "Available and ready for your next club opportunity.", emoji: "⚽" },
-              { title: "Clubs & Scouts", desc: "Discover undiscovered talent from around the world.", emoji: "⚽" },
+              { title: language === "ro" ? "Jucători Amatori" : "Amateur Players", desc: language === "ro" ? "Începi călătoria ta profesională cu ambiție și determinare." : "Starting your professional journey with ambition and drive.", emoji: "⚽" },
+              { title: language === "ro" ? "Jucători Semi-Profesioniști" : "Semi-Professional Players", desc: language === "ro" ? "Gata să faci următorul pas în cariera ta." : "Ready to take the next step in your career.", emoji: "⚽" },
+              { title: language === "ro" ? "Jucători Profesioniști" : "Professional Players", desc: language === "ro" ? "Cauți noi oportunități și avansare în carieră." : "Seeking new opportunities and career advancement.", emoji: "⚽" },
+              { title: language === "ro" ? "Absolvenți de Academie" : "Academy Graduates", desc: language === "ro" ? "Tranziția de la fotbalul juvenil la nivel profesionist." : "Transitioning from youth football to professional level.", emoji: "⚽" },
+              { title: language === "ro" ? "Agenți Liberi" : "Free Agents", desc: language === "ro" ? "Disponibil și pregătit pentru următoarea ta oportunitate." : "Available and ready for your next club opportunity.", emoji: "⚽" },
+              { title: language === "ro" ? "Cluburi & Scouteri" : "Clubs & Scouts", desc: language === "ro" ? "Descoperă talente nedescoperite din întreaga lume." : "Discover undiscovered talent from around the world.", emoji: "⚽" },
             ].map((item, idx) => (
               <Card
                 key={idx}
@@ -383,7 +388,7 @@ export default function Home() {
                     {item.desc}
                   </p>
                   <button className="text-neon-green text-sm mt-2 hover:underline">
-                    {expandedCard === idx ? "Show less" : "Learn more"}
+                    {expandedCard === idx ? (language === "ro" ? "Arată mai puțin" : "Show less") : (language === "ro" ? "Află mai multe" : "Learn more")}
                   </button>
                 </CardContent>
               </Card>
@@ -415,10 +420,12 @@ export default function Home() {
         <div className="container relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-4xl font-bold mb-4 text-neon-green">
-              Powered By Professional Football Technology
+              {language === "ro" ? "Susținut de Tehnologie Profesională de Fotbal" : "Powered By Professional Football Technology"}
             </h2>
             <p className="text-lg text-muted-foreground">
-              Open Trial utilizes industry-leading technologies for player analysis, video review, performance tracking, and recruitment visibility.
+              {language === "ro" 
+                ? "Open Trial utilizează tehnologii de top din industrie pentru analiza jucătorilor, revizuirea video, urmărirea performanței și vizibilitatea în recrutare."
+                : "Open Trial utilizes industry-leading technologies for player analysis, video review, performance tracking, and recruitment visibility."}
             </p>
           </div>
 
@@ -470,7 +477,9 @@ export default function Home() {
           </div>
 
           <p className="text-center text-sm text-muted-foreground max-w-4xl mx-auto italic">
-            Open Trial may utilize industry-standard football technology and analysis platforms to support player evaluation and profile creation. All trademarks remain the property of their respective owners.
+            {language === "ro"
+              ? "Open Trial poate utiliza platforme standard din industrie de tehnologie și analiză fotbalistică pentru a susține evaluarea jucătorilor și crearea profilurilor. Toate mărcile înregistrate rămân proprietatea deținătorilor respectivi."
+              : "Open Trial may utilize industry-standard football technology and analysis platforms to support player evaluation and profile creation. All trademarks remain the property of their respective owners."}
           </p>
         </div>
       </motion.section>
@@ -492,21 +501,23 @@ export default function Home() {
 
         <div className="container relative z-10 text-center">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-glow">
-            READY TO TAKE THE NEXT STEP?
+            {language === "ro" ? "GATA SĂ FACI URMĂTORUL PAS?" : "READY TO TAKE THE NEXT STEP?"}
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
-            Join thousands of players who have already created their profiles and connected with opportunities worldwide.
+            {language === "ro"
+              ? "Alătură-te miilor de jucători care și-au creat deja profiluri și s-au conectat cu oportunități în întreaga lume."
+              : "Join thousands of players who have already created their profiles and connected with opportunities worldwide."}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-neon-green text-background hover:bg-neon-green/90 glow-green-strong group text-base px-8">
               <Link href="/apply">
-                Apply Now
+                {t("hero.cta")}
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-neon-green/30 text-neon-green hover:bg-neon-green/10 text-base px-8">
               <Link href="/how-it-works">
-                Learn More
+                {t("hero.learn_more")}
               </Link>
             </Button>
           </div>

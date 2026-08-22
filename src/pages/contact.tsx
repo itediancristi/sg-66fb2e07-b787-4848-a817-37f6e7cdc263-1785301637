@@ -7,15 +7,18 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Send, CheckCircle2 } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Contact() {
   const [state, handleSubmit] = useForm("mkjwejdv");
+  const { t, language } = useLanguage();
 
   return (
     <>
       <SEO 
-        title="Contact Us - Open Trial"
-        description="Get in touch with Open Trial. We're here to answer your questions about player trials, club partnerships, and opportunities."
+        title={language === "ro" ? "Contact - Open Trial" : "Contact Us - Open Trial"}
+        description={language === "ro" ? "Contactează Open Trial. Suntem aici pentru a răspunde întrebărilor tale despre selecții, parteneriate și oportunități." : "Get in touch with Open Trial. We're here to answer your questions about player trials, club partnerships, and opportunities."}
+        language={language}
       />
       
       <div className="min-h-screen bg-background">
@@ -27,15 +30,17 @@ export default function Contact() {
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-neon-green/10 border border-neon-green/20 rounded-full mb-6">
                 <Mail className="w-4 h-4 text-neon-green" />
-                <span className="text-sm font-medium text-neon-green">Get In Touch</span>
+                <span className="text-sm font-medium text-neon-green">
+                  {language === "ro" ? "Ia Legătura" : "Get In Touch"}
+                </span>
               </div>
               
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Contact <span className="text-neon-green">Open Trial</span>
+                {t("contact.title")}
               </h1>
               
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Have questions about trials, partnerships, or opportunities? We're here to help connect talent with the right clubs.
+                {t("contact.subtitle")}
               </p>
             </div>
 
@@ -44,21 +49,23 @@ export default function Contact() {
               {state.succeeded ? (
                 <div className="text-center py-12">
                   <CheckCircle2 className="w-16 h-16 text-neon-green mx-auto mb-4" />
-                  <h2 className="text-2xl font-bold mb-2">Message Sent!</h2>
+                  <h2 className="text-2xl font-bold mb-2">
+                    {language === "ro" ? "Mesaj Trimis!" : "Message Sent!"}
+                  </h2>
                   <p className="text-muted-foreground">
-                    Thanks for reaching out. We'll get back to you within 24-48 hours.
+                    {t("contact.success")}
                   </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="name">Full Name *</Label>
+                      <Label htmlFor="name">{t("contact.name")} *</Label>
                       <Input
                         id="name"
                         name="name"
                         type="text"
-                        placeholder="Enter your name"
+                        placeholder={language === "ro" ? "Introdu numele tău" : "Enter your name"}
                         required
                         disabled={state.submitting}
                         className="bg-background"
@@ -67,7 +74,7 @@ export default function Contact() {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="email">Email Address *</Label>
+                      <Label htmlFor="email">{t("contact.email")} *</Label>
                       <Input
                         id="email"
                         name="email"
@@ -82,12 +89,12 @@ export default function Contact() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="subject">Subject *</Label>
+                    <Label htmlFor="subject">{t("contact.subject")} *</Label>
                     <Input
                       id="subject"
                       name="subject"
                       type="text"
-                      placeholder="What's this about?"
+                      placeholder={language === "ro" ? "Despre ce este vorba?" : "What's this about?"}
                       required
                       disabled={state.submitting}
                       className="bg-background"
@@ -96,11 +103,11 @@ export default function Contact() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="message">Message *</Label>
+                    <Label htmlFor="message">{t("contact.message")} *</Label>
                     <Textarea
                       id="message"
                       name="message"
-                      placeholder="Tell us what you need help with..."
+                      placeholder={language === "ro" ? "Spune-ne cu ce ai nevoie de ajutor..." : "Tell us what you need help with..."}
                       required
                       disabled={state.submitting}
                       rows={6}
@@ -120,12 +127,10 @@ export default function Contact() {
                     disabled={state.submitting}
                     className="w-full bg-neon-green hover:bg-neon-green/90 text-pitch-black font-semibold"
                   >
-                    {state.submitting ? (
-                      "Sending..."
-                    ) : (
+                    {state.submitting ? t("contact.sending") : (
                       <>
                         <Send className="w-4 h-4 mr-2" />
-                        Send Message
+                        {t("contact.send")}
                       </>
                     )}
                   </Button>
@@ -136,7 +141,9 @@ export default function Contact() {
             {/* Additional Contact Info */}
             <div className="mt-12 grid md:grid-cols-2 gap-6">
               <div className="bg-card border border-border rounded-lg p-6">
-                <h3 className="font-semibold mb-2">Email Us Directly</h3>
+                <h3 className="font-semibold mb-2">
+                  {language === "ro" ? "Trimite-ne Email Direct" : "Email Us Directly"}
+                </h3>
                 <a 
                   href="mailto:info@opentrialfootball.com"
                   className="text-neon-green hover:underline"
@@ -146,9 +153,13 @@ export default function Contact() {
               </div>
 
               <div className="bg-card border border-border rounded-lg p-6">
-                <h3 className="font-semibold mb-2">Response Time</h3>
+                <h3 className="font-semibold mb-2">
+                  {language === "ro" ? "Timp de Răspuns" : "Response Time"}
+                </h3>
                 <p className="text-muted-foreground">
-                  We typically respond within 24-48 hours
+                  {language === "ro" 
+                    ? "De obicei răspundem în 24-48 ore"
+                    : "We typically respond within 24-48 hours"}
                 </p>
               </div>
             </div>

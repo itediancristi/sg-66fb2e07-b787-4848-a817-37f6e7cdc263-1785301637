@@ -13,16 +13,19 @@ import { CheckCircle } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Apply() {
   const [state, handleSubmit] = useForm("xaewkowr");
+  const { t, language } = useLanguage();
 
   if (state.succeeded) {
     return (
       <>
         <SEO
-          title="Application Received - Open Trial"
-          description="Your Open Trial application has been received. We'll review your profile and contact you soon."
+          title={language === "ro" ? "Aplicație Primită - Open Trial" : "Application Received - Open Trial"}
+          description={language === "ro" ? "Aplicația ta Open Trial a fost primită. Vom revizui profilul tău și te vom contacta în curând." : "Your Open Trial application has been received. We'll review your profile and contact you soon."}
+          language={language}
         />
         
         <Navigation />
@@ -37,21 +40,25 @@ export default function Apply() {
               </div>
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-glow">
-                APPLICATION RECEIVED
+                {language === "ro" ? "APLICAȚIE PRIMITĂ" : "APPLICATION RECEIVED"}
               </h1>
               
               <Card className="bg-card/50 backdrop-blur border-neon-green/30 glow-green mb-8">
                 <CardContent className="p-8">
                   <p className="text-lg text-muted-foreground mb-6">
-                    Thank you for applying to Open Trial. We&apos;ll review your application and contact you soon.
+                    {t("apply.success")}
                   </p>
                   
                   <div className="space-y-4 text-left">
                     <div className="flex items-start gap-3 p-4 bg-muted/20 rounded border border-border">
                       <CheckCircle className="w-5 h-5 text-neon-green flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="font-semibold mb-1">Profile Under Review</p>
-                        <p className="text-sm text-muted-foreground">We&apos;re evaluating your application</p>
+                        <p className="font-semibold mb-1">
+                          {language === "ro" ? "Profil în Revizuire" : "Profile Under Review"}
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          {language === "ro" ? "Evaluăm aplicația ta" : "We're evaluating your application"}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -64,11 +71,14 @@ export default function Apply() {
                   size="lg" 
                   className="bg-neon-green text-background hover:bg-neon-green/90 glow-green text-base px-8"
                 >
-                  Submit Another Application
+                  {language === "ro" ? "Trimite O Altă Aplicație" : "Submit Another Application"}
                 </Button>
                 
                 <p className="text-sm text-muted-foreground">
-                  Questions? Contact us at <a href="mailto:info@opentrialfootball.com" className="text-neon-green hover:underline">info@opentrialfootball.com</a>
+                  {language === "ro" ? "Întrebări? Contactează-ne la " : "Questions? Contact us at "}
+                  <a href="mailto:info@opentrialfootball.com" className="text-neon-green hover:underline">
+                    info@opentrialfootball.com
+                  </a>
                 </p>
               </div>
             </div>
@@ -83,8 +93,9 @@ export default function Apply() {
   return (
     <>
       <SEO
-        title="Apply - Open Trial"
-        description="Take the first step toward your next football opportunity. Submit your application to Open Trial."
+        title={language === "ro" ? "Aplică - Open Trial" : "Apply - Open Trial"}
+        description={language === "ro" ? "Fă primul pas către următoarea ta oportunitate în fotbal. Trimite aplicația ta la Open Trial." : "Take the first step toward your next football opportunity. Submit your application to Open Trial."}
+        language={language}
       />
       
       <Navigation />
@@ -94,15 +105,15 @@ export default function Apply() {
         
         <div className="container relative z-10 text-center py-20">
           <Badge className="mb-6 bg-neon-green/10 text-neon-green border-neon-green/30 hover:bg-neon-green/20 text-sm px-4 py-1">
-            Start Your Journey
+            {language === "ro" ? "Începe Călătoria Ta" : "Start Your Journey"}
           </Badge>
           
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 text-glow">
-            APPLY TO OPEN TRIAL
+            {t("apply.title").toUpperCase()}
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-            Take the first step toward your next football opportunity.
+            {t("apply.subtitle")}
           </p>
         </div>
       </section>
@@ -114,21 +125,21 @@ export default function Apply() {
               <CardContent className="p-8 md:p-12">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
-                    <Label htmlFor="fullName" className="text-foreground">Full Name *</Label>
+                    <Label htmlFor="fullName" className="text-foreground">{t("apply.full_name")} *</Label>
                     <Input
                       id="fullName"
                       name="fullName"
                       required
                       disabled={state.submitting}
                       className="bg-background border-border focus:border-neon-green"
-                      placeholder="Your full name"
+                      placeholder={language === "ro" ? "Numele tău complet" : "Your full name"}
                     />
                     <ValidationError field="fullName" errors={state.errors} />
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="email" className="text-foreground">Email *</Label>
+                      <Label htmlFor="email" className="text-foreground">{t("apply.email")} *</Label>
                       <Input
                         id="email"
                         name="email"
@@ -142,7 +153,7 @@ export default function Apply() {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="phone" className="text-foreground">Phone *</Label>
+                      <Label htmlFor="phone" className="text-foreground">{t("apply.phone")} *</Label>
                       <Input
                         id="phone"
                         name="phone"
@@ -158,7 +169,7 @@ export default function Apply() {
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="dateOfBirth" className="text-foreground">Date of Birth *</Label>
+                      <Label htmlFor="dateOfBirth" className="text-foreground">{t("apply.date_of_birth")} *</Label>
                       <Input
                         id="dateOfBirth"
                         name="dateOfBirth"
@@ -171,14 +182,14 @@ export default function Apply() {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="nationality" className="text-foreground">Nationality *</Label>
+                      <Label htmlFor="nationality" className="text-foreground">{t("apply.nationality")} *</Label>
                       <Input
                         id="nationality"
                         name="nationality"
                         required
                         disabled={state.submitting}
                         className="bg-background border-border focus:border-neon-green"
-                        placeholder="Your nationality"
+                        placeholder={language === "ro" ? "Naționalitatea ta" : "Your nationality"}
                       />
                       <ValidationError field="nationality" errors={state.errors} />
                     </div>
@@ -186,7 +197,7 @@ export default function Apply() {
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="position" className="text-foreground">Position *</Label>
+                      <Label htmlFor="position" className="text-foreground">{t("apply.position")} *</Label>
                       <select
                         id="position"
                         name="position"
@@ -194,25 +205,25 @@ export default function Apply() {
                         disabled={state.submitting}
                         className="flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-green focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                       >
-                        <option value="">Select position</option>
-                        <option value="Goalkeeper">Goalkeeper</option>
-                        <option value="Defender">Defender</option>
-                        <option value="Midfielder">Midfielder</option>
-                        <option value="Forward">Forward</option>
-                        <option value="Winger">Winger</option>
-                        <option value="Striker">Striker</option>
+                        <option value="">{language === "ro" ? "Selectează poziția" : "Select position"}</option>
+                        <option value="Goalkeeper">{language === "ro" ? "Portar" : "Goalkeeper"}</option>
+                        <option value="Defender">{language === "ro" ? "Fundaș" : "Defender"}</option>
+                        <option value="Midfielder">{language === "ro" ? "Mijlocaș" : "Midfielder"}</option>
+                        <option value="Forward">{language === "ro" ? "Atacant" : "Forward"}</option>
+                        <option value="Winger">{language === "ro" ? "Extremă" : "Winger"}</option>
+                        <option value="Striker">{language === "ro" ? "Atacant Central" : "Striker"}</option>
                       </select>
                       <ValidationError field="position" errors={state.errors} />
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="currentClub" className="text-foreground">Current Club</Label>
+                      <Label htmlFor="currentClub" className="text-foreground">{t("apply.current_club")}</Label>
                       <Input
                         id="currentClub"
                         name="currentClub"
                         disabled={state.submitting}
                         className="bg-background border-border focus:border-neon-green"
-                        placeholder="Club name or Free Agent"
+                        placeholder={language === "ro" ? "Numele clubului sau Agent Liber" : "Club name or Free Agent"}
                       />
                       <ValidationError field="currentClub" errors={state.errors} />
                     </div>
@@ -220,7 +231,7 @@ export default function Apply() {
 
                   <div className="grid md:grid-cols-3 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="height" className="text-foreground">Height (cm) *</Label>
+                      <Label htmlFor="height" className="text-foreground">{t("apply.height")} *</Label>
                       <Input
                         id="height"
                         name="height"
@@ -234,7 +245,7 @@ export default function Apply() {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="weight" className="text-foreground">Weight (kg) *</Label>
+                      <Label htmlFor="weight" className="text-foreground">{t("apply.weight")} *</Label>
                       <Input
                         id="weight"
                         name="weight"
@@ -248,7 +259,7 @@ export default function Apply() {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="preferredFoot" className="text-foreground">Preferred Foot *</Label>
+                      <Label htmlFor="preferredFoot" className="text-foreground">{t("apply.preferred_foot")} *</Label>
                       <select
                         id="preferredFoot"
                         name="preferredFoot"
@@ -256,50 +267,56 @@ export default function Apply() {
                         disabled={state.submitting}
                         className="flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-green focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                       >
-                        <option value="">Select foot</option>
-                        <option value="right">Right</option>
-                        <option value="left">Left</option>
-                        <option value="both">Both</option>
+                        <option value="">{language === "ro" ? "Selectează piciorul" : "Select foot"}</option>
+                        <option value="right">{t("apply.foot.right")}</option>
+                        <option value="left">{t("apply.foot.left")}</option>
+                        <option value="both">{t("apply.foot.both")}</option>
                       </select>
                       <ValidationError field="preferredFoot" errors={state.errors} />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="careerHighlights" className="text-foreground">Career Highlights</Label>
+                    <Label htmlFor="careerHighlights" className="text-foreground">
+                      {language === "ro" ? "Momente de Vârf în Carieră" : "Career Highlights"}
+                    </Label>
                     <Textarea
                       id="careerHighlights"
                       name="careerHighlights"
                       disabled={state.submitting}
                       rows={3}
                       className="bg-background border-border focus:border-neon-green resize-none"
-                      placeholder="Describe your career highlights..."
+                      placeholder={language === "ro" ? "Descrie momentele de vârf din cariera ta..." : "Describe your career highlights..."}
                     />
                     <ValidationError field="careerHighlights" errors={state.errors} />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="achievements" className="text-foreground">Achievements</Label>
+                    <Label htmlFor="achievements" className="text-foreground">
+                      {language === "ro" ? "Realizări" : "Achievements"}
+                    </Label>
                     <Textarea
                       id="achievements"
                       name="achievements"
                       disabled={state.submitting}
                       rows={3}
                       className="bg-background border-border focus:border-neon-green resize-none"
-                      placeholder="List your achievements..."
+                      placeholder={language === "ro" ? "Enumeră realizările tale..." : "List your achievements..."}
                     />
                     <ValidationError field="achievements" errors={state.errors} />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="playingStyle" className="text-foreground">Playing Style</Label>
+                    <Label htmlFor="playingStyle" className="text-foreground">
+                      {language === "ro" ? "Stilul de Joc" : "Playing Style"}
+                    </Label>
                     <Textarea
                       id="playingStyle"
                       name="playingStyle"
                       disabled={state.submitting}
                       rows={3}
                       className="bg-background border-border focus:border-neon-green resize-none"
-                      placeholder="Describe your playing style..."
+                      placeholder={language === "ro" ? "Descrie stilul tău de joc..." : "Describe your playing style..."}
                     />
                     <ValidationError field="playingStyle" errors={state.errors} />
                   </div>
@@ -317,7 +334,7 @@ export default function Apply() {
                       disabled={state.submitting}
                       className="bg-neon-green text-background hover:bg-neon-green/90 glow-green-strong text-base px-12"
                     >
-                      {state.submitting ? "Submitting..." : "Submit Application"}
+                      {state.submitting ? t("apply.submitting") : t("apply.submit")}
                     </Button>
                   </div>
                 </form>
