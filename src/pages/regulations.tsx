@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SEO } from "@/components/SEO";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { 
   Shield,
   Users,
@@ -13,11 +14,14 @@ import {
 } from "lucide-react";
 
 export default function RegulationsPage() {
+  const { language } = useLanguage();
+
   return (
     <>
       <SEO
-        title="Regulations & Terms - Open Trial"
-        description="Open Trial platform terms, player and club responsibilities, content policy, disclaimers, and privacy information."
+        title={language === "ro" ? "Regulamente & Termeni - Open Trial" : "Regulations & Terms - Open Trial"}
+        description={language === "ro" ? "Termeni platformă Open Trial, responsabilități jucători și cluburi, politică conținut, disclaimer și informații confidențialitate." : "Open Trial platform terms, player and club responsibilities, content policy, disclaimers, and privacy information."}
+        language={language}
       />
       
       <Navigation />
@@ -27,15 +31,15 @@ export default function RegulationsPage() {
         
         <div className="container relative z-10 text-center py-20">
           <Badge className="mb-6 bg-neon-green/10 text-neon-green border-neon-green/30 hover:bg-neon-green/20 text-sm px-4 py-1">
-            Legal & Policies
+            {language === "ro" ? "Legal & Politici" : "Legal & Policies"}
           </Badge>
           
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 text-glow">
-            REGULATIONS & TERMS
+            {language === "ro" ? "REGULAMENTE & TERMENI" : "REGULATIONS & TERMS"}
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-            Platform guidelines, responsibilities, and policies
+            {language === "ro" ? "Ghiduri platformă, responsabilități și politici" : "Platform guidelines, responsibilities, and policies"}
           </p>
         </div>
       </section>
@@ -51,21 +55,29 @@ export default function RegulationsPage() {
                   </div>
                   <div>
                     <Badge className="mb-3 bg-neon-green/10 text-neon-green border-neon-green/30">
-                      Section 1
+                      {language === "ro" ? "Secțiunea 1" : "Section 1"}
                     </Badge>
-                    <h2 className="text-2xl font-bold mb-4">Platform Purpose</h2>
+                    <h2 className="text-2xl font-bold mb-4">
+                      {language === "ro" ? "Scopul Platformei" : "Platform Purpose"}
+                    </h2>
                   </div>
                 </div>
 
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    Open Trial provides visibility and networking opportunities between football players, clubs, scouts, and recruiters worldwide.
+                    {language === "ro" 
+                      ? "Open Trial oferă vizibilitate și oportunități de networking între jucători de fotbal, cluburi, scouteri și recrutori din întreaga lume."
+                      : "Open Trial provides visibility and networking opportunities between football players, clubs, scouts, and recruiters worldwide."}
                   </p>
                   
                   <div className="bg-muted/20 border border-border rounded-lg p-6 mt-6">
-                    <p className="font-semibold text-foreground mb-2">Important Disclaimer:</p>
+                    <p className="font-semibold text-foreground mb-2">
+                      {language === "ro" ? "Disclaimer Important:" : "Important Disclaimer:"}
+                    </p>
                     <p>
-                      Open Trial <strong>does not guarantee</strong> contracts, trials, transfers, or employment. The platform serves as a connection tool, and all recruitment decisions remain the sole responsibility of clubs, scouts, recruiters, and players.
+                      {language === "ro"
+                        ? "Open Trial nu garantează contracte, selecții, transferuri sau angajare. Platforma servește ca instrument de conexiune, iar toate deciziile de recrutare rămân responsabilitatea exclusivă a cluburilor, scouterilor, recrutorilor și jucătorilor."
+                        : "Open Trial does not guarantee contracts, trials, transfers, or employment. The platform serves as a connection tool, and all recruitment decisions remain the sole responsibility of clubs, scouts, recruiters, and players."}
                     </p>
                   </div>
                 </div>
@@ -80,14 +92,20 @@ export default function RegulationsPage() {
                   </div>
                   <div>
                     <Badge className="mb-3 bg-neon-green/10 text-neon-green border-neon-green/30">
-                      Section 2
+                      {language === "ro" ? "Secțiunea 2" : "Section 2"}
                     </Badge>
-                    <h2 className="text-2xl font-bold mb-4">Player Responsibilities</h2>
+                    <h2 className="text-2xl font-bold mb-4">
+                      {language === "ro" ? "Responsabilități Jucători" : "Player Responsibilities"}
+                    </h2>
                   </div>
                 </div>
 
                 <div className="space-y-4">
-                  <p className="text-muted-foreground">Players using Open Trial must adhere to the following responsibilities:</p>
+                  <p className="text-muted-foreground">
+                    {language === "ro"
+                      ? "Jucătorii care utilizează Open Trial trebuie să respecte următoarele responsabilități:"
+                      : "Players using Open Trial must adhere to the following responsibilities:"}
+                  </p>
                   
                   <div className="space-y-3">
                     <div className="flex items-start gap-3 p-4 bg-muted/20 rounded border border-border">
@@ -95,8 +113,14 @@ export default function RegulationsPage() {
                         <span className="text-xs font-bold text-neon-green">1</span>
                       </div>
                       <div>
-                        <p className="font-semibold mb-1">Submit Accurate Information</p>
-                        <p className="text-sm text-muted-foreground">All profile information, statistics, and career details must be truthful and current</p>
+                        <p className="font-semibold mb-1">
+                          {language === "ro" ? "Informații Exacte" : "Submit Accurate Information"}
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          {language === "ro"
+                            ? "Toate informațiile din profil, statisticile și detaliile de carieră trebuie să fie adevărate și actuale"
+                            : "All profile information, statistics, and career details must be truthful and current"}
+                        </p>
                       </div>
                     </div>
 
@@ -105,8 +129,14 @@ export default function RegulationsPage() {
                         <span className="text-xs font-bold text-neon-green">2</span>
                       </div>
                       <div>
-                        <p className="font-semibold mb-1">Own All Uploaded Content</p>
-                        <p className="text-sm text-muted-foreground">You must have rights to all videos, images, and materials uploaded to your profile</p>
+                        <p className="font-semibold mb-1">
+                          {language === "ro" ? "Drepturi asupra Conținutului" : "Own All Uploaded Content"}
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          {language === "ro"
+                            ? "Trebuie să ai drepturi asupra tuturor videoclipurilor, imaginilor și materialelor încărcate în profilul tău"
+                            : "You must have rights to all videos, images, and materials uploaded to your profile"}
+                        </p>
                       </div>
                     </div>
 
@@ -115,8 +145,14 @@ export default function RegulationsPage() {
                         <span className="text-xs font-bold text-neon-green">3</span>
                       </div>
                       <div>
-                        <p className="font-semibold mb-1">Maintain Professional Conduct</p>
-                        <p className="text-sm text-muted-foreground">Interact respectfully with scouts, clubs, and other platform users</p>
+                        <p className="font-semibold mb-1">
+                          {language === "ro" ? "Conduită Profesională" : "Maintain Professional Conduct"}
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          {language === "ro"
+                            ? "Interacționează respectuos cu scouteri, cluburi și alți utilizatori ai platformei"
+                            : "Interact respectfully with scouts, clubs, and other platform users"}
+                        </p>
                       </div>
                     </div>
 
@@ -125,8 +161,14 @@ export default function RegulationsPage() {
                         <span className="text-xs font-bold text-neon-green">4</span>
                       </div>
                       <div>
-                        <p className="font-semibold mb-1">Update Profile Information</p>
-                        <p className="text-sm text-muted-foreground">Keep your profile current with club changes, statistics, and availability status</p>
+                        <p className="font-semibold mb-1">
+                          {language === "ro" ? "Actualizează Profilul" : "Update Profile Information"}
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          {language === "ro"
+                            ? "Păstrează profilul actualizat cu schimbări de club, statistici și statut de disponibilitate"
+                            : "Keep your profile current with club changes, statistics, and availability status"}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -142,14 +184,20 @@ export default function RegulationsPage() {
                   </div>
                   <div>
                     <Badge className="mb-3 bg-neon-green/10 text-neon-green border-neon-green/30">
-                      Section 3
+                      {language === "ro" ? "Secțiunea 3" : "Section 3"}
                     </Badge>
-                    <h2 className="text-2xl font-bold mb-4">Club Responsibilities</h2>
+                    <h2 className="text-2xl font-bold mb-4">
+                      {language === "ro" ? "Responsabilități Cluburi" : "Club Responsibilities"}
+                    </h2>
                   </div>
                 </div>
 
                 <div className="space-y-4">
-                  <p className="text-muted-foreground">Clubs, scouts, and recruiters must:</p>
+                  <p className="text-muted-foreground">
+                    {language === "ro"
+                      ? "Cluburile, scouterii și recrutori trebuie să:"
+                      : "Clubs, scouts, and recruiters must:"}
+                  </p>
                   
                   <div className="space-y-3">
                     <div className="flex items-start gap-3 p-4 bg-muted/20 rounded border border-border">
@@ -157,8 +205,14 @@ export default function RegulationsPage() {
                         <span className="text-xs font-bold text-neon-green">1</span>
                       </div>
                       <div>
-                        <p className="font-semibold mb-1">Use Information Professionally</p>
-                        <p className="text-sm text-muted-foreground">Player data must be used solely for legitimate recruitment purposes</p>
+                        <p className="font-semibold mb-1">
+                          {language === "ro" ? "Utilizare Profesională" : "Use Information Professionally"}
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          {language === "ro"
+                            ? "Datele jucătorilor trebuie folosite exclusiv pentru scopuri legitime de recrutare"
+                            : "Player data must be used solely for legitimate recruitment purposes"}
+                        </p>
                       </div>
                     </div>
 
@@ -167,8 +221,14 @@ export default function RegulationsPage() {
                         <span className="text-xs font-bold text-neon-green">2</span>
                       </div>
                       <div>
-                        <p className="font-semibold mb-1">Respect Player Privacy</p>
-                        <p className="text-sm text-muted-foreground">Do not share, sell, or misuse player contact information or personal data</p>
+                        <p className="font-semibold mb-1">
+                          {language === "ro" ? "Respectă Confidențialitatea" : "Respect Player Privacy"}
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          {language === "ro"
+                            ? "Nu distribuiți, vindeți sau folosiți greșit informațiile de contact sau datele personale ale jucătorilor"
+                            : "Do not share, sell, or misuse player contact information or personal data"}
+                        </p>
                       </div>
                     </div>
 
@@ -177,8 +237,14 @@ export default function RegulationsPage() {
                         <span className="text-xs font-bold text-neon-green">3</span>
                       </div>
                       <div>
-                        <p className="font-semibold mb-1">Avoid Misleading Practices</p>
-                        <p className="text-sm text-muted-foreground">Be honest about opportunities, club status, and recruitment processes</p>
+                        <p className="font-semibold mb-1">
+                          {language === "ro" ? "Evită Practici Înșelătoare" : "Avoid Misleading Practices"}
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          {language === "ro"
+                            ? "Fii onest despre oportunități, statusul clubului și procesele de recrutare"
+                            : "Be honest about opportunities, club status, and recruitment processes"}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -194,52 +260,84 @@ export default function RegulationsPage() {
                   </div>
                   <div>
                     <Badge className="mb-3 bg-neon-green/10 text-neon-green border-neon-green/30">
-                      Section 4
+                      {language === "ro" ? "Secțiunea 4" : "Section 4"}
                     </Badge>
-                    <h2 className="text-2xl font-bold mb-4">Content Policy</h2>
+                    <h2 className="text-2xl font-bold mb-4">
+                      {language === "ro" ? "Politică Conținut" : "Content Policy"}
+                    </h2>
                   </div>
                 </div>
 
                 <div className="space-y-4">
-                  <p className="text-muted-foreground">The following content is strictly prohibited on Open Trial:</p>
+                  <p className="text-muted-foreground">
+                    {language === "ro"
+                      ? "Următorul conținut este strict interzis pe Open Trial:"
+                      : "The following content is strictly prohibited on Open Trial:"}
+                  </p>
                   
                   <div className="space-y-3">
                     <div className="flex items-start gap-3 p-4 bg-destructive/10 rounded border border-destructive/30">
                       <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="font-semibold text-destructive mb-1">False Information</p>
-                        <p className="text-sm text-muted-foreground">Fabricated statistics, career history, or player credentials</p>
+                        <p className="font-semibold text-destructive mb-1">
+                          {language === "ro" ? "Informații False" : "False Information"}
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          {language === "ro"
+                            ? "Statistici fabricate, istoricul carierei sau acreditări ale jucătorilor"
+                            : "Fabricated statistics, career history, or player credentials"}
+                        </p>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-3 p-4 bg-destructive/10 rounded border border-destructive/30">
                       <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="font-semibold text-destructive mb-1">Offensive Content</p>
-                        <p className="text-sm text-muted-foreground">Discriminatory, abusive, or inappropriate material</p>
+                        <p className="font-semibold text-destructive mb-1">
+                          {language === "ro" ? "Conținut Ofensator" : "Offensive Content"}
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          {language === "ro"
+                            ? "Material discriminatoriu, abuziv sau nepotrivit"
+                            : "Discriminatory, abusive, or inappropriate material"}
+                        </p>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-3 p-4 bg-destructive/10 rounded border border-destructive/30">
                       <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="font-semibold text-destructive mb-1">Copyright Infringement</p>
-                        <p className="text-sm text-muted-foreground">Unauthorized use of videos, images, or media you don&apos;t own</p>
+                        <p className="font-semibold text-destructive mb-1">
+                          {language === "ro" ? "Încălcarea Copyright-ului" : "Copyright Infringement"}
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          {language === "ro"
+                            ? "Utilizarea neautorizată a videoclipurilor, imaginilor sau media pe care nu le deții"
+                            : "Unauthorized use of videos, images, or media you don't own"}
+                        </p>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-3 p-4 bg-destructive/10 rounded border border-destructive/30">
                       <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="font-semibold text-destructive mb-1">Impersonation</p>
-                        <p className="text-sm text-muted-foreground">Creating profiles for other players or misrepresenting identity</p>
+                        <p className="font-semibold text-destructive mb-1">
+                          {language === "ro" ? "Impersonare" : "Impersonation"}
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          {language === "ro"
+                            ? "Crearea de profiluri pentru alți jucători sau denaturarea identității"
+                            : "Creating profiles for other players or misrepresenting identity"}
+                        </p>
                       </div>
                     </div>
                   </div>
 
                   <div className="mt-6 p-4 bg-muted/20 rounded border border-border">
                     <p className="text-sm text-muted-foreground">
-                      Violations may result in profile suspension or permanent removal from the platform.
+                      {language === "ro"
+                        ? "Încălcările pot duce la suspendarea profilului sau eliminarea permanentă de pe platformă."
+                        : "Violations may result in profile suspension or permanent removal from the platform."}
                     </p>
                   </div>
                 </div>
@@ -254,7 +352,7 @@ export default function RegulationsPage() {
                   </div>
                   <div>
                     <Badge className="mb-3 bg-neon-green/10 text-neon-green border-neon-green/30">
-                      Section 5
+                      {language === "ro" ? "Secțiunea 5" : "Section 5"}
                     </Badge>
                     <h2 className="text-2xl font-bold mb-4">Disclaimer</h2>
                   </div>
@@ -262,33 +360,55 @@ export default function RegulationsPage() {
 
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    Open Trial acts as a <strong className="text-foreground">visibility and networking platform</strong> connecting football players with clubs, scouts, and recruiters.
+                    {language === "ro"
+                      ? "Open Trial acționează ca o platformă de vizibilitate și networking conectând jucători de fotbal cu cluburi, scouteri și recrutori."
+                      : "Open Trial acts as a visibility and networking platform connecting football players with clubs, scouts, and recruiters."}
                   </p>
                   
                   <div className="bg-muted/20 border border-border rounded-lg p-6">
-                    <p className="font-semibold text-foreground mb-3">Important Notice:</p>
+                    <p className="font-semibold text-foreground mb-3">
+                      {language === "ro" ? "Notă Importantă:" : "Important Notice:"}
+                    </p>
                     <ul className="space-y-2 text-sm">
                       <li className="flex items-start gap-2">
                         <span className="text-neon-green mt-1">•</span>
-                        <span>Recruitment decisions remain solely the responsibility of clubs, scouts, recruiters, and players</span>
+                        <span>
+                          {language === "ro"
+                            ? "Deciziile de recrutare rămân responsabilitatea exclusivă a cluburilor, scouterilor, recrutorilor și jucătorilor"
+                            : "Recruitment decisions remain solely the responsibility of clubs, scouts, recruiters, and players"}
+                        </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-neon-green mt-1">•</span>
-                        <span>Open Trial does not participate in transfer negotiations or contract discussions</span>
+                        <span>
+                          {language === "ro"
+                            ? "Open Trial nu participă la negocieri de transfer sau discuții contractuale"
+                            : "Open Trial does not participate in transfer negotiations or contract discussions"}
+                        </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-neon-green mt-1">•</span>
-                        <span>The platform provides tools for exposure and connection, not employment guarantees</span>
+                        <span>
+                          {language === "ro"
+                            ? "Platforma oferă instrumente pentru expunere și conexiune, nu garanții de angajare"
+                            : "The platform provides tools for exposure and connection, not employment guarantees"}
+                        </span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-neon-green mt-1">•</span>
-                        <span>Players are responsible for verifying the legitimacy of opportunities and clubs</span>
+                        <span>
+                          {language === "ro"
+                            ? "Jucătorii sunt responsabili pentru verificarea legitimității oportunităților și cluburilor"
+                            : "Players are responsible for verifying the legitimacy of opportunities and clubs"}
+                        </span>
                       </li>
                     </ul>
                   </div>
 
                   <p className="text-sm">
-                    By using Open Trial, all parties acknowledge these limitations and accept full responsibility for their interactions and decisions.
+                    {language === "ro"
+                      ? "Folosind Open Trial, toate părțile recunosc aceste limitări și acceptă responsabilitatea deplină pentru interacțiunile și deciziile lor."
+                      : "By using Open Trial, all parties acknowledge these limitations and accept full responsibility for their interactions and decisions."}
                   </p>
                 </div>
               </CardContent>
@@ -302,54 +422,86 @@ export default function RegulationsPage() {
                   </div>
                   <div>
                     <Badge className="mb-3 bg-neon-green/10 text-neon-green border-neon-green/30">
-                      Section 6
+                      {language === "ro" ? "Secțiunea 6" : "Section 6"}
                     </Badge>
-                    <h2 className="text-2xl font-bold mb-4">Privacy</h2>
+                    <h2 className="text-2xl font-bold mb-4">
+                      {language === "ro" ? "Confidențialitate" : "Privacy"}
+                    </h2>
                   </div>
                 </div>
 
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    Personal data submitted to Open Trial is handled according to applicable data protection regulations.
+                    {language === "ro"
+                      ? "Datele personale trimise către Open Trial sunt gestionate conform reglementărilor de protecție a datelor aplicabile."
+                      : "Personal data submitted to Open Trial is handled according to applicable data protection regulations."}
                   </p>
 
                   <div className="space-y-3">
                     <div className="flex items-start gap-3 p-4 bg-muted/20 rounded border border-border">
                       <Lock className="w-5 h-5 text-neon-green flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="font-semibold mb-1">Data Collection</p>
-                        <p className="text-sm">We collect only information necessary for profile creation and platform functionality</p>
+                        <p className="font-semibold mb-1">
+                          {language === "ro" ? "Colectare Date" : "Data Collection"}
+                        </p>
+                        <p className="text-sm">
+                          {language === "ro"
+                            ? "Colectăm doar informațiile necesare pentru crearea profilului și funcționalitatea platformei"
+                            : "We collect only information necessary for profile creation and platform functionality"}
+                        </p>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-3 p-4 bg-muted/20 rounded border border-border">
                       <Lock className="w-5 h-5 text-neon-green flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="font-semibold mb-1">Data Usage</p>
-                        <p className="text-sm">Your information is used to connect you with recruitment opportunities</p>
+                        <p className="font-semibold mb-1">
+                          {language === "ro" ? "Utilizare Date" : "Data Usage"}
+                        </p>
+                        <p className="text-sm">
+                          {language === "ro"
+                            ? "Informațiile tale sunt folosite pentru a te conecta cu oportunități de recrutare"
+                            : "Your information is used to connect you with recruitment opportunities"}
+                        </p>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-3 p-4 bg-muted/20 rounded border border-border">
                       <Lock className="w-5 h-5 text-neon-green flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="font-semibold mb-1">Data Security</p>
-                        <p className="text-sm">We implement industry-standard security measures to protect your personal information</p>
+                        <p className="font-semibold mb-1">
+                          {language === "ro" ? "Securitate Date" : "Data Security"}
+                        </p>
+                        <p className="text-sm">
+                          {language === "ro"
+                            ? "Implementăm măsuri de securitate standard din industrie pentru a proteja informațiile tale personale"
+                            : "We implement industry-standard security measures to protect your personal information"}
+                        </p>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-3 p-4 bg-muted/20 rounded border border-border">
                       <Lock className="w-5 h-5 text-neon-green flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="font-semibold mb-1">Your Rights</p>
-                        <p className="text-sm">You may request access, correction, or deletion of your personal data at any time</p>
+                        <p className="font-semibold mb-1">
+                          {language === "ro" ? "Drepturile Tale" : "Your Rights"}
+                        </p>
+                        <p className="text-sm">
+                          {language === "ro"
+                            ? "Poți solicita acces, corectare sau ștergerea datelor tale personale oricând"
+                            : "You may request access, correction, or deletion of your personal data at any time"}
+                        </p>
                       </div>
                     </div>
                   </div>
 
                   <div className="mt-6 p-4 bg-muted/20 rounded border border-border">
                     <p className="text-sm">
-                      For privacy inquiries or data requests, contact <a href="mailto:info@opentrialfootball.com" className="text-neon-green hover:underline">info@opentrialfootball.com</a>
+                      {language === "ro" ? (
+                        <>Pentru întrebări despre confidențialitate sau cereri de date, contactează <a href="mailto:info@opentrialfootball.com" className="text-neon-green hover:underline">info@opentrialfootball.com</a></>
+                      ) : (
+                        <>For privacy inquiries or data requests, contact <a href="mailto:info@opentrialfootball.com" className="text-neon-green hover:underline">info@opentrialfootball.com</a></>
+                      )}
                     </p>
                   </div>
                 </div>
@@ -358,10 +510,17 @@ export default function RegulationsPage() {
 
             <div className="text-center pt-8">
               <p className="text-sm text-muted-foreground">
-                Last updated: July 2026 • For questions about these terms, contact{" "}
-                <a href="mailto:info@opentrialfootball.com" className="text-neon-green hover:underline">
-                  info@opentrialfootball.com
-                </a>
+                {language === "ro" ? (
+                  <>Actualizat ultima dată: Iulie 2026 • Pentru întrebări despre acești termeni, contactează{" "}
+                  <a href="mailto:info@opentrialfootball.com" className="text-neon-green hover:underline">
+                    info@opentrialfootball.com
+                  </a></>
+                ) : (
+                  <>Last updated: July 2026 • For questions about these terms, contact{" "}
+                  <a href="mailto:info@opentrialfootball.com" className="text-neon-green hover:underline">
+                    info@opentrialfootball.com
+                  </a></>
+                )}
               </p>
             </div>
           </div>
