@@ -1,8 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Instagram, Linkedin, Video } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-background border-t border-border">
       <div className="container mx-auto px-4 sm:px-6 py-12">
@@ -24,28 +27,28 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4 text-neon-green">Platform</h3>
+            <h3 className="font-semibold mb-4 text-neon-green">{t("footer.company")}</h3>
             <div className="space-y-2">
               <Link href="/" className="block text-sm text-muted-foreground hover:text-neon-green transition-colors">
-                Home
+                {t("nav.home")}
               </Link>
               <Link href="/how-it-works" className="block text-sm text-muted-foreground hover:text-neon-green transition-colors">
-                How It Works
+                {t("footer.how_it_works")}
               </Link>
               <Link href="/apply" className="block text-sm text-muted-foreground hover:text-neon-green transition-colors">
-                Apply
+                {t("nav.apply")}
               </Link>
             </div>
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4 text-neon-green">Legal</h3>
+            <h3 className="font-semibold mb-4 text-neon-green">{t("footer.legal")}</h3>
             <div className="space-y-2">
               <Link href="/regulations" className="block text-sm text-muted-foreground hover:text-neon-green transition-colors">
-                Regulations
+                {t("footer.regulations")}
               </Link>
               <Link href="/contact" className="block text-sm text-muted-foreground hover:text-neon-green transition-colors">
-                Contact
+                {t("footer.contact")}
               </Link>
             </div>
           </div>
@@ -95,7 +98,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-border text-center">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Open Trial. All rights reserved.
+            © {new Date().getFullYear()} Open Trial. {t("footer.rights")}
           </p>
         </div>
       </div>

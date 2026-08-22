@@ -6,11 +6,13 @@ import { useRouter } from "next/router";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,20 +70,42 @@ export function Navigation() {
 
           <div className="hidden md:flex items-center gap-8">
             <Link href="/" className={linkClass("/")}>
-              Home
+              {t("nav.home")}
             </Link>
             <Link href="/how-it-works" className={linkClass("/how-it-works")}>
-              How It Works
+              {t("nav.how_it_works")}
             </Link>
             <Link href="/apply" className={linkClass("/apply")}>
-              Apply
+              {t("nav.apply")}
             </Link>
             <Link href="/regulations" className={linkClass("/regulations")}>
-              Regulations
+              {t("nav.regulations")}
             </Link>
             <Link href="/contact" className={linkClass("/contact")}>
-              Contact
+              {t("nav.contact")}
             </Link>
+            
+            <div className="flex items-center gap-2 ml-2 pl-2 border-l border-border">
+              <button
+                onClick={() => setLanguage("ro")}
+                className={`text-sm font-medium transition-colors ${
+                  language === "ro" ? "text-neon-green" : "text-muted-foreground hover:text-foreground"
+                }`}
+                aria-label="Romanian"
+              >
+                🇷🇴 RO
+              </button>
+              <span className="text-muted-foreground">|</span>
+              <button
+                onClick={() => setLanguage("en")}
+                className={`text-sm font-medium transition-colors ${
+                  language === "en" ? "text-neon-green" : "text-muted-foreground hover:text-foreground"
+                }`}
+                aria-label="English"
+              >
+                🇬🇧 EN
+              </button>
+            </div>
           </div>
 
           <button
@@ -100,36 +124,62 @@ export function Navigation() {
               className={mobileLinkClass("/")}
               onClick={() => setIsOpen(false)}
             >
-              Home
+              {t("nav.home")}
             </Link>
             <Link
               href="/how-it-works"
               className={mobileLinkClass("/how-it-works")}
               onClick={() => setIsOpen(false)}
             >
-              How It Works
+              {t("nav.how_it_works")}
             </Link>
             <Link
               href="/apply"
               className={mobileLinkClass("/apply")}
               onClick={() => setIsOpen(false)}
             >
-              Apply
+              {t("nav.apply")}
             </Link>
             <Link
               href="/regulations"
               className={mobileLinkClass("/regulations")}
               onClick={() => setIsOpen(false)}
             >
-              Regulations
+              {t("nav.regulations")}
             </Link>
             <Link
               href="/contact"
               className={mobileLinkClass("/contact")}
               onClick={() => setIsOpen(false)}
             >
-              Contact
+              {t("nav.contact")}
             </Link>
+            
+            <div className="flex items-center gap-3 pt-4 border-t border-border">
+              <button
+                onClick={() => {
+                  setLanguage("ro");
+                  setIsOpen(false);
+                }}
+                className={`text-sm font-medium transition-colors ${
+                  language === "ro" ? "text-neon-green" : "text-muted-foreground"
+                }`}
+              >
+                🇷🇴 RO
+              </button>
+              <span className="text-muted-foreground">|</span>
+              <button
+                onClick={() => {
+                  setLanguage("en");
+                  setIsOpen(false);
+                }}
+                className={`text-sm font-medium transition-colors ${
+                  language === "en" ? "text-neon-green" : "text-muted-foreground"
+                }`}
+              >
+                🇬🇧 EN
+              </button>
+            </div>
           </div>
         )}
       </div>
