@@ -96,9 +96,9 @@ export function Navigation() {
                 <Image 
                   src="/generated/flag-romania.png" 
                   alt="Romania" 
-                  width={20} 
-                  height={15}
-                  className="w-5 h-4 object-cover rounded-sm"
+                  width={28} 
+                  height={20}
+                  className="w-7 h-5 object-cover rounded-sm"
                 />
                 RO
               </button>
@@ -113,9 +113,9 @@ export function Navigation() {
                 <Image 
                   src="/generated/flag-uk.png" 
                   alt="United Kingdom" 
-                  width={20} 
-                  height={15}
-                  className="w-5 h-4 object-cover rounded-sm"
+                  width={28} 
+                  height={20}
+                  className="w-7 h-5 object-cover rounded-sm"
                 />
                 EN
               </button>
@@ -182,9 +182,9 @@ export function Navigation() {
                 <Image 
                   src="/generated/flag-romania.png" 
                   alt="Romania" 
-                  width={20} 
-                  height={15}
-                  className="w-5 h-4 object-cover rounded-sm"
+                  width={28} 
+                  height={20}
+                  className="w-7 h-5 object-cover rounded-sm"
                 />
                 RO
               </button>
@@ -201,9 +201,9 @@ export function Navigation() {
                 <Image 
                   src="/generated/flag-uk.png" 
                   alt="United Kingdom" 
-                  width={20} 
-                  height={15}
-                  className="w-5 h-4 object-cover rounded-sm"
+                  width={28} 
+                  height={20}
+                  className="w-7 h-5 object-cover rounded-sm"
                 />
                 EN
               </button>
