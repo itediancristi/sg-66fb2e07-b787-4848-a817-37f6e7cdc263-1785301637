@@ -16,9 +16,6 @@ import { Footer } from "@/components/Footer";
 
 export default function Apply() {
   const [state, handleSubmit] = useForm("xaewkowr");
-  const [videoFile, setVideoFile] = useState<File | null>(null);
-  const [photoFile, setPhotoFile] = useState<File | null>(null);
-  const [documentFiles, setDocumentFiles] = useState<File[]>([]);
 
   if (state.succeeded) {
     return (
@@ -305,53 +302,6 @@ export default function Apply() {
                       placeholder="Describe your playing style..."
                     />
                     <ValidationError field="playingStyle" errors={state.errors} />
-                  </div>
-
-                  <div className="space-y-4 border-t border-border pt-6">
-                    <h3 className="text-lg font-semibold">Media Upload</h3>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="photo">Player Photo</Label>
-                      <Input
-                        id="photo"
-                        name="photo"
-                        type="file"
-                        accept="image/*"
-                        disabled={state.submitting}
-                        onChange={(e) => setPhotoFile(e.target.files?.[0] || null)}
-                        className="bg-background border-border"
-                      />
-                      <ValidationError field="photo" errors={state.errors} />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="video">Highlight Video</Label>
-                      <Input
-                        id="video"
-                        name="video"
-                        type="file"
-                        accept="video/*"
-                        disabled={state.submitting}
-                        onChange={(e) => setVideoFile(e.target.files?.[0] || null)}
-                        className="bg-background border-border"
-                      />
-                      <ValidationError field="video" errors={state.errors} />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="documents">Documents (CV, Certificates, etc.)</Label>
-                      <Input
-                        id="documents"
-                        name="documents"
-                        type="file"
-                        multiple
-                        accept=".pdf,.doc,.docx"
-                        disabled={state.submitting}
-                        onChange={(e) => setDocumentFiles(Array.from(e.target.files || []))}
-                        className="bg-background border-border"
-                      />
-                      <ValidationError field="documents" errors={state.errors} />
-                    </div>
                   </div>
 
                   {state.errors && (
