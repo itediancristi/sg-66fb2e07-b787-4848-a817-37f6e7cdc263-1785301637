@@ -21,7 +21,7 @@ const translations = {
     "nav.admin": "Admin",
     
     // Hero Section
-    "hero.subtitle": "Platformă digitală pentru managementul selecțiilor deschise în fotbalul românesc",
+    "hero.subtitle": "Open Trial oferă fotbaliștilor posibilitatea de a-și prezenta talentul și profesionalismul, de a-și crește vizibilitatea și de a se conecta cu cluburi, scouteri și recrutori din întreaga lume.",
     "hero.cta": "Aplică pentru Selecție",
     "hero.learn_more": "Află Mai Multe",
     
@@ -152,7 +152,7 @@ const translations = {
     "nav.admin": "Admin",
     
     // Hero Section
-    "hero.subtitle": "Digital platform for managing open trials in Romanian football",
+    "hero.subtitle": "Open Trial helps football players showcase their talent, gain visibility, and connect with clubs, scouts, and recruiters worldwide.",
     "hero.cta": "Apply for Trial",
     "hero.learn_more": "Learn More",
     
