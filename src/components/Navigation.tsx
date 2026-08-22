@@ -88,22 +88,36 @@ export function Navigation() {
             <div className="flex items-center gap-2 ml-2 pl-2 border-l border-border">
               <button
                 onClick={() => setLanguage("ro")}
-                className={`text-sm font-medium transition-colors ${
+                className={`flex items-center gap-1.5 text-sm font-medium transition-colors ${
                   language === "ro" ? "text-neon-green" : "text-muted-foreground hover:text-foreground"
                 }`}
                 aria-label="Romanian"
               >
-                🇷🇴 RO
+                <Image 
+                  src="/generated/flag-romania.png" 
+                  alt="Romania" 
+                  width={20} 
+                  height={15}
+                  className="w-5 h-4 object-cover rounded-sm"
+                />
+                RO
               </button>
               <span className="text-muted-foreground">|</span>
               <button
                 onClick={() => setLanguage("en")}
-                className={`text-sm font-medium transition-colors ${
+                className={`flex items-center gap-1.5 text-sm font-medium transition-colors ${
                   language === "en" ? "text-neon-green" : "text-muted-foreground hover:text-foreground"
                 }`}
                 aria-label="English"
               >
-                🇬🇧 EN
+                <Image 
+                  src="/generated/flag-uk.png" 
+                  alt="United Kingdom" 
+                  width={20} 
+                  height={15}
+                  className="w-5 h-4 object-cover rounded-sm"
+                />
+                EN
               </button>
             </div>
           </div>
@@ -161,11 +175,18 @@ export function Navigation() {
                   setLanguage("ro");
                   setIsOpen(false);
                 }}
-                className={`text-sm font-medium transition-colors ${
+                className={`flex items-center gap-1.5 text-sm font-medium transition-colors ${
                   language === "ro" ? "text-neon-green" : "text-muted-foreground"
                 }`}
               >
-                🇷🇴 RO
+                <Image 
+                  src="/generated/flag-romania.png" 
+                  alt="Romania" 
+                  width={20} 
+                  height={15}
+                  className="w-5 h-4 object-cover rounded-sm"
+                />
+                RO
               </button>
               <span className="text-muted-foreground">|</span>
               <button
@@ -173,11 +194,18 @@ export function Navigation() {
                   setLanguage("en");
                   setIsOpen(false);
                 }}
-                className={`text-sm font-medium transition-colors ${
+                className={`flex items-center gap-1.5 text-sm font-medium transition-colors ${
                   language === "en" ? "text-neon-green" : "text-muted-foreground"
                 }`}
               >
-                🇬🇧 EN
+                <Image 
+                  src="/generated/flag-uk.png" 
+                  alt="United Kingdom" 
+                  width={20} 
+                  height={15}
+                  className="w-5 h-4 object-cover rounded-sm"
+                />
+                EN
               </button>
             </div>
           </div>
