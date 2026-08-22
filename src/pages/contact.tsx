@@ -1,73 +1,15 @@
-import { useState } from "react"
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3"
-import { SEO } from "@/components/SEO"
-import { Navigation } from "@/components/Navigation"
-import { Footer } from "@/components/Footer"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import { Mail, Send, CheckCircle2, AlertCircle } from "lucide-react"
+import { useForm, ValidationError } from "@formspree/react";
+import { SEO } from "@/components/SEO";
+import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Mail, Send, CheckCircle2 } from "lucide-react";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: ""
-  })
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
-  const [errorMessage, setErrorMessage] = useState("")
-  const { executeRecaptcha } = useGoogleReCaptcha()
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    
-    if (!executeRecaptcha) {
-      setStatus("error")
-      setErrorMessage("reCAPTCHA not loaded. Please refresh the page.")
-      return
-    }
-
-    setStatus("loading")
-    setErrorMessage("")
-
-    try {
-      const recaptchaToken = await executeRecaptcha("contact_form")
-
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...formData,
-          recaptchaToken
-        }),
-      })
-
-      const data = await response.json()
-
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to send message")
-      }
-
-      setStatus("success")
-      setFormData({ name: "", email: "", subject: "", message: "" })
-      
-      setTimeout(() => setStatus("idle"), 5000)
-    } catch (error) {
-      setStatus("error")
-      setErrorMessage(error instanceof Error ? error.message : "Something went wrong")
-    }
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }))
-  }
+  const [state, handleSubmit] = useForm("mkjwejdv");
 
   return (
     <>
@@ -99,103 +41,96 @@ export default function Contact() {
 
             {/* Contact Form */}
             <div className="bg-card border border-border rounded-lg p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
+              {state.succeeded ? (
+                <div className="text-center py-12">
+                  <CheckCircle2 className="w-16 h-16 text-neon-green mx-auto mb-4" />
+                  <h2 className="text-2xl font-bold mb-2">Message Sent!</h2>
+                  <p className="text-muted-foreground">
+                    Thanks for reaching out. We'll get back to you within 24-48 hours.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Full Name *</Label>
+                      <Input
+                        id="name"
+                        name="name"
+                        type="text"
+                        placeholder="Enter your name"
+                        required
+                        disabled={state.submitting}
+                        className="bg-background"
+                      />
+                      <ValidationError field="name" errors={state.errors} />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email Address *</Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="your@email.com"
+                        required
+                        disabled={state.submitting}
+                        className="bg-background"
+                      />
+                      <ValidationError field="email" errors={state.errors} />
+                    </div>
+                  </div>
+
                   <div className="space-y-2">
-                    <Label htmlFor="name">Full Name *</Label>
+                    <Label htmlFor="subject">Subject *</Label>
                     <Input
-                      id="name"
-                      name="name"
+                      id="subject"
+                      name="subject"
                       type="text"
-                      placeholder="Enter your name"
-                      value={formData.name}
-                      onChange={handleChange}
+                      placeholder="What's this about?"
                       required
-                      disabled={status === "loading"}
+                      disabled={state.submitting}
                       className="bg-background"
                     />
+                    <ValidationError field="subject" errors={state.errors} />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="email">Email Address *</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="your@email.com"
-                      value={formData.email}
-                      onChange={handleChange}
+                    <Label htmlFor="message">Message *</Label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      placeholder="Tell us what you need help with..."
                       required
-                      disabled={status === "loading"}
-                      className="bg-background"
+                      disabled={state.submitting}
+                      rows={6}
+                      className="bg-background resize-none"
                     />
+                    <ValidationError field="message" errors={state.errors} />
                   </div>
-                </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="subject">Subject *</Label>
-                  <Input
-                    id="subject"
-                    name="subject"
-                    type="text"
-                    placeholder="What's this about?"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    disabled={status === "loading"}
-                    className="bg-background"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message *</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    placeholder="Tell us what you need help with..."
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    disabled={status === "loading"}
-                    rows={6}
-                    className="bg-background resize-none"
-                  />
-                </div>
-
-                {/* Status Messages */}
-                {status === "success" && (
-                  <div className="flex items-center gap-3 p-4 bg-neon-green/10 border border-neon-green/20 rounded-lg">
-                    <CheckCircle2 className="w-5 h-5 text-neon-green flex-shrink-0" />
-                    <p className="text-sm text-foreground">
-                      Message sent successfully! We'll get back to you soon.
-                    </p>
-                  </div>
-                )}
-
-                {status === "error" && (
-                  <div className="flex items-center gap-3 p-4 bg-destructive/10 border border-destructive/20 rounded-lg">
-                    <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0" />
-                    <p className="text-sm text-destructive">
-                      {errorMessage || "Failed to send message. Please try again."}
-                    </p>
-                  </div>
-                )}
-
-                <Button
-                  type="submit"
-                  disabled={status === "loading"}
-                  className="w-full bg-neon-green hover:bg-neon-green/90 text-pitch-black font-semibold"
-                >
-                  {status === "loading" ? (
-                    "Sending..."
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4 mr-2" />
-                      Send Message
-                    </>
+                  {state.errors && (
+                    <div className="p-4 bg-destructive/10 border border-destructive/30 rounded text-destructive text-sm">
+                      <ValidationError errors={state.errors} />
+                    </div>
                   )}
-                </Button>
-              </form>
+
+                  <Button
+                    type="submit"
+                    disabled={state.submitting}
+                    className="w-full bg-neon-green hover:bg-neon-green/90 text-pitch-black font-semibold"
+                  >
+                    {state.submitting ? (
+                      "Sending..."
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4 mr-2" />
+                        Send Message
+                      </>
+                    )}
+                  </Button>
+                </form>
+              )}
             </div>
 
             {/* Additional Contact Info */}
@@ -223,5 +158,5 @@ export default function Contact() {
         <Footer />
       </div>
     </>
-  )
+  );
 }
