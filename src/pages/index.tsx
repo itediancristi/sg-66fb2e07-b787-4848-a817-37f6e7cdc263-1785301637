@@ -202,6 +202,29 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* Early Access Section */}
+      <motion.section 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={fadeInUp}
+        className="py-16 border-t border-border bg-neon-green/5"
+      >
+        <div className="container">
+          <div className="max-w-3xl mx-auto text-center">
+            <Badge className="mb-4 bg-neon-green/20 text-neon-green border-neon-green/40 hover:bg-neon-green/30 text-sm px-4 py-1.5">
+              Now in Early Access
+            </Badge>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-glow">
+              Now in Early Access.
+            </h2>
+            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
+              Open Trial just launched. We're onboarding our first players and clubs — join now and be part of the founding group shaping the platform.
+            </p>
+          </div>
+        </div>
+      </motion.section>
+
       <motion.section 
         id="stats-section"
         initial="hidden"
