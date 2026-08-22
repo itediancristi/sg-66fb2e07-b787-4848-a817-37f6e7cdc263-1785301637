@@ -247,7 +247,7 @@ export default function Home() {
               <CardContent className="p-8 text-center">
                 <Users className="w-12 h-12 text-neon-green mx-auto mb-4" />
                 <div className="text-4xl font-bold font-mono mb-2 text-neon-green">
-                  <Counter end={15000} />+
+                  <Counter end={250} />+
                 </div>
                 <p className="text-muted-foreground">Players Seeking Opportunities</p>
               </CardContent>
@@ -257,7 +257,7 @@ export default function Home() {
               <CardContent className="p-8 text-center">
                 <Target className="w-12 h-12 text-neon-green mx-auto mb-4" />
                 <div className="text-4xl font-bold font-mono mb-2 text-neon-green">
-                  <Counter end={2500} />+
+                  <Counter end={15} />+
                 </div>
                 <p className="text-muted-foreground">Clubs Recruiting Talent</p>
               </CardContent>
@@ -267,7 +267,7 @@ export default function Home() {
               <CardContent className="p-8 text-center">
                 <Globe className="w-12 h-12 text-neon-green mx-auto mb-4" />
                 <div className="text-4xl font-bold font-mono mb-2 text-neon-green">
-                  <Counter end={45} />+
+                  <Counter end={7} />+
                 </div>
                 <p className="text-muted-foreground">Countries Reached</p>
               </CardContent>
@@ -277,7 +277,7 @@ export default function Home() {
               <CardContent className="p-8 text-center">
                 <TrendingUp className="w-12 h-12 text-neon-green mx-auto mb-4" />
                 <div className="text-4xl font-bold font-mono mb-2 text-neon-green">
-                  <Counter end={8700} />+
+                  <Counter end={176} />+
                 </div>
                 <p className="text-muted-foreground">Profiles Created</p>
               </CardContent>
