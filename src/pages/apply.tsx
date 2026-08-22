@@ -354,7 +354,7 @@ export default function Apply() {
                     </div>
                   </div>
 
-                  {state.errors && state.errors.length > 0 && (
+                  {state.errors && (
                     <div className="p-4 bg-destructive/10 border border-destructive/30 rounded text-destructive text-sm">
                       <ValidationError errors={state.errors} />
                     </div>
