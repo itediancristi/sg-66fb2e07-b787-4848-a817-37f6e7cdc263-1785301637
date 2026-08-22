@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -8,111 +9,18 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { useToast } from "@/hooks/use-toast";
-import { Upload, CheckCircle, AlertCircle } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 
-interface FormData {
-  fullName: string;
-  email: string;
-  phone: string;
-  dateOfBirth: string;
-  nationality: string;
-  position: string;
-  height: string;
-  weight: string;
-  preferredFoot: string;
-  currentClub: string;
-  careerHighlights: string;
-  achievements: string;
-  playingStyle: string;
-}
-
 export default function Apply() {
-  const { toast } = useToast();
-  const [loading, setLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [state, handleSubmit] = useForm("xaewkowr");
   const [videoFile, setVideoFile] = useState<File | null>(null);
   const [photoFile, setPhotoFile] = useState<File | null>(null);
   const [documentFiles, setDocumentFiles] = useState<File[]>([]);
-  
-  const [formData, setFormData] = useState<FormData>({
-    fullName: "",
-    email: "",
-    phone: "",
-    dateOfBirth: "",
-    nationality: "",
-    position: "",
-    height: "",
-    weight: "",
-    preferredFoot: "",
-    currentClub: "",
-    careerHighlights: "",
-    achievements: "",
-    playingStyle: "",
-  });
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSelectChange = (name: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-
-    try {
-      const form = e.target as HTMLFormElement;
-      const formDataToSubmit = new FormData(form);
-
-      // Add file inputs to FormData if they exist
-      if (videoFile) {
-        formDataToSubmit.append("video", videoFile);
-      }
-      if (photoFile) {
-        formDataToSubmit.append("photo", photoFile);
-      }
-      if (documentFiles.length > 0) {
-        documentFiles.forEach((doc, index) => {
-          formDataToSubmit.append(`document_${index}`, doc);
-        });
-      }
-
-      const response = await fetch("https://formspree.io/f/mkjwejdv", {
-        method: "POST",
-        body: formDataToSubmit,
-        headers: { Accept: "application/json" },
-      });
-
-      if (response.ok) {
-        toast({
-          title: "Success!",
-          description: "Your application has been submitted successfully. We'll review it and get back to you soon.",
-        });
-        setSubmitted(true);
-      } else {
-        throw new Error("Failed to submit application");
-      }
-    } catch (error: any) {
-      toast({
-        title: "Error",
-        description: error.message || "Failed to submit application. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  if (submitted) {
+  if (state.succeeded) {
     return (
       <>
         <SEO
@@ -155,7 +63,7 @@ export default function Apply() {
 
               <div className="space-y-4">
                 <Button 
-                  onClick={() => setSubmitted(false)}
+                  onClick={() => window.location.reload()}
                   size="lg" 
                   className="bg-neon-green text-background hover:bg-neon-green/90 glow-green text-base px-8"
                 >
@@ -213,12 +121,12 @@ export default function Apply() {
                     <Input
                       id="fullName"
                       name="fullName"
-                      value={formData.fullName}
-                      onChange={handleInputChange}
                       required
+                      disabled={state.submitting}
                       className="bg-background border-border focus:border-neon-green"
                       placeholder="Your full name"
                     />
+                    <ValidationError field="fullName" errors={state.errors} />
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-6">
@@ -228,12 +136,12 @@ export default function Apply() {
                         id="email"
                         name="email"
                         type="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
                         required
+                        disabled={state.submitting}
                         className="bg-background border-border focus:border-neon-green"
                         placeholder="your.email@example.com"
                       />
+                      <ValidationError field="email" errors={state.errors} />
                     </div>
 
                     <div className="space-y-2">
@@ -242,12 +150,12 @@ export default function Apply() {
                         id="phone"
                         name="phone"
                         type="tel"
-                        value={formData.phone}
-                        onChange={handleInputChange}
                         required
+                        disabled={state.submitting}
                         className="bg-background border-border focus:border-neon-green"
                         placeholder="+1234567890"
                       />
+                      <ValidationError field="phone" errors={state.errors} />
                     </div>
                   </div>
 
@@ -258,11 +166,11 @@ export default function Apply() {
                         id="dateOfBirth"
                         name="dateOfBirth"
                         type="date"
-                        value={formData.dateOfBirth}
-                        onChange={handleInputChange}
                         required
+                        disabled={state.submitting}
                         className="bg-background border-border focus:border-neon-green"
                       />
+                      <ValidationError field="dateOfBirth" errors={state.errors} />
                     </div>
 
                     <div className="space-y-2">
@@ -270,31 +178,34 @@ export default function Apply() {
                       <Input
                         id="nationality"
                         name="nationality"
-                        value={formData.nationality}
-                        onChange={handleInputChange}
                         required
+                        disabled={state.submitting}
                         className="bg-background border-border focus:border-neon-green"
                         placeholder="Your nationality"
                       />
+                      <ValidationError field="nationality" errors={state.errors} />
                     </div>
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="position" className="text-foreground">Position *</Label>
-                      <Select value={formData.position} onValueChange={(value) => handleSelectChange("position", value)}>
-                        <SelectTrigger className="bg-background border-border">
-                          <SelectValue placeholder="Select position" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="Goalkeeper">Goalkeeper</SelectItem>
-                          <SelectItem value="Defender">Defender</SelectItem>
-                          <SelectItem value="Midfielder">Midfielder</SelectItem>
-                          <SelectItem value="Forward">Forward</SelectItem>
-                          <SelectItem value="Winger">Winger</SelectItem>
-                          <SelectItem value="Striker">Striker</SelectItem>
-                        </SelectContent>
-                      </Select>
+                      <select
+                        id="position"
+                        name="position"
+                        required
+                        disabled={state.submitting}
+                        className="flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-green focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                      >
+                        <option value="">Select position</option>
+                        <option value="Goalkeeper">Goalkeeper</option>
+                        <option value="Defender">Defender</option>
+                        <option value="Midfielder">Midfielder</option>
+                        <option value="Forward">Forward</option>
+                        <option value="Winger">Winger</option>
+                        <option value="Striker">Striker</option>
+                      </select>
+                      <ValidationError field="position" errors={state.errors} />
                     </div>
 
                     <div className="space-y-2">
@@ -302,11 +213,11 @@ export default function Apply() {
                       <Input
                         id="currentClub"
                         name="currentClub"
-                        value={formData.currentClub}
-                        onChange={handleInputChange}
+                        disabled={state.submitting}
                         className="bg-background border-border focus:border-neon-green"
                         placeholder="Club name or Free Agent"
                       />
+                      <ValidationError field="currentClub" errors={state.errors} />
                     </div>
                   </div>
 
@@ -317,12 +228,12 @@ export default function Apply() {
                         id="height"
                         name="height"
                         type="number"
-                        value={formData.height}
-                        onChange={handleInputChange}
                         required
+                        disabled={state.submitting}
                         className="bg-background border-border focus:border-neon-green"
                         placeholder="180"
                       />
+                      <ValidationError field="height" errors={state.errors} />
                     </div>
 
                     <div className="space-y-2">
@@ -331,26 +242,29 @@ export default function Apply() {
                         id="weight"
                         name="weight"
                         type="number"
-                        value={formData.weight}
-                        onChange={handleInputChange}
                         required
+                        disabled={state.submitting}
                         className="bg-background border-border focus:border-neon-green"
                         placeholder="75"
                       />
+                      <ValidationError field="weight" errors={state.errors} />
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="preferredFoot" className="text-foreground">Preferred Foot *</Label>
-                      <Select value={formData.preferredFoot} onValueChange={(value) => handleSelectChange("preferredFoot", value)}>
-                        <SelectTrigger className="bg-background border-border">
-                          <SelectValue placeholder="Select foot" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="right">Right</SelectItem>
-                          <SelectItem value="left">Left</SelectItem>
-                          <SelectItem value="both">Both</SelectItem>
-                        </SelectContent>
-                      </Select>
+                      <select
+                        id="preferredFoot"
+                        name="preferredFoot"
+                        required
+                        disabled={state.submitting}
+                        className="flex h-10 w-full rounded-md border border-border bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-green focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                      >
+                        <option value="">Select foot</option>
+                        <option value="right">Right</option>
+                        <option value="left">Left</option>
+                        <option value="both">Both</option>
+                      </select>
+                      <ValidationError field="preferredFoot" errors={state.errors} />
                     </div>
                   </div>
 
@@ -359,12 +273,12 @@ export default function Apply() {
                     <Textarea
                       id="careerHighlights"
                       name="careerHighlights"
-                      value={formData.careerHighlights}
-                      onChange={handleInputChange}
+                      disabled={state.submitting}
                       rows={3}
                       className="bg-background border-border focus:border-neon-green resize-none"
                       placeholder="Describe your career highlights..."
                     />
+                    <ValidationError field="careerHighlights" errors={state.errors} />
                   </div>
 
                   <div className="space-y-2">
@@ -372,12 +286,12 @@ export default function Apply() {
                     <Textarea
                       id="achievements"
                       name="achievements"
-                      value={formData.achievements}
-                      onChange={handleInputChange}
+                      disabled={state.submitting}
                       rows={3}
                       className="bg-background border-border focus:border-neon-green resize-none"
                       placeholder="List your achievements..."
                     />
+                    <ValidationError field="achievements" errors={state.errors} />
                   </div>
 
                   <div className="space-y-2">
@@ -385,12 +299,12 @@ export default function Apply() {
                     <Textarea
                       id="playingStyle"
                       name="playingStyle"
-                      value={formData.playingStyle}
-                      onChange={handleInputChange}
+                      disabled={state.submitting}
                       rows={3}
                       className="bg-background border-border focus:border-neon-green resize-none"
                       placeholder="Describe your playing style..."
                     />
+                    <ValidationError field="playingStyle" errors={state.errors} />
                   </div>
 
                   <div className="space-y-4 border-t border-border pt-6">
@@ -400,45 +314,60 @@ export default function Apply() {
                       <Label htmlFor="photo">Player Photo</Label>
                       <Input
                         id="photo"
+                        name="photo"
                         type="file"
                         accept="image/*"
+                        disabled={state.submitting}
                         onChange={(e) => setPhotoFile(e.target.files?.[0] || null)}
                         className="bg-background border-border"
                       />
+                      <ValidationError field="photo" errors={state.errors} />
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="video">Highlight Video</Label>
                       <Input
                         id="video"
+                        name="video"
                         type="file"
                         accept="video/*"
+                        disabled={state.submitting}
                         onChange={(e) => setVideoFile(e.target.files?.[0] || null)}
                         className="bg-background border-border"
                       />
+                      <ValidationError field="video" errors={state.errors} />
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="documents">Documents (CV, Certificates, etc.)</Label>
                       <Input
                         id="documents"
+                        name="documents"
                         type="file"
                         multiple
                         accept=".pdf,.doc,.docx"
+                        disabled={state.submitting}
                         onChange={(e) => setDocumentFiles(Array.from(e.target.files || []))}
                         className="bg-background border-border"
                       />
+                      <ValidationError field="documents" errors={state.errors} />
                     </div>
                   </div>
+
+                  {state.errors && state.errors.length > 0 && (
+                    <div className="p-4 bg-destructive/10 border border-destructive/30 rounded text-destructive text-sm">
+                      <ValidationError errors={state.errors} />
+                    </div>
+                  )}
 
                   <div className="text-center pt-4">
                     <Button
                       type="submit"
                       size="lg"
-                      disabled={loading}
+                      disabled={state.submitting}
                       className="bg-neon-green text-background hover:bg-neon-green/90 glow-green-strong text-base px-12"
                     >
-                      {loading ? "Submitting..." : "Submit Application"}
+                      {state.submitting ? "Submitting..." : "Submit Application"}
                     </Button>
                   </div>
                 </form>
