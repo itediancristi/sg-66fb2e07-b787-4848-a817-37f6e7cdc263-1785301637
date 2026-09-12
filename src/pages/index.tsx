@@ -367,13 +367,49 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-            { title: language === "ro" ? "Jucători Amatori" : "Amateur Players", desc: language === "ro" ? "Începi călătoria ta profesională cu ambiție și determinare." : "Starting your professional journey with ambition and drive.", emoji: "⚽" },
-            { title: language === "ro" ? "Jucători Semi-Profesioniști" : "Semi-Professional Players", desc: language === "ro" ? "Gata să faci următorul pas în cariera ta." : "Ready to take the next step in your career.", emoji: "⚽" },
-            { title: language === "ro" ? "Jucători Profesioniști" : "Professional Players", desc: language === "ro" ? "Cauți noi oportunități și avansare în carieră." : "Seeking new opportunities and career advancement.", emoji: "⚽" },
-            { title: language === "ro" ? "Absolvenți de Academie" : "Academy Graduates", desc: language === "ro" ? "Tranziția de la fotbalul juvenil la nivel profesionist." : "Transitioning from youth football to professional level.", emoji: "⚽" },
-            { title: language === "ro" ? "Agenți Liberi" : "Free Agents", desc: language === "ro" ? "Disponibil și pregătit pentru următoarea ta oportunitate." : "Available and ready for your next club opportunity.", emoji: "⚽" },
-            { title: language === "ro" ? "Cluburi & Scouteri" : "Clubs & Scouts", desc: language === "ro" ? "Descoperă talente nedescoperite din întreaga lume." : "Discover undiscovered talent from around the world.", emoji: "⚽" }].
-            map((item, idx) =>
+            { 
+              title: language === "ro" ? "Jucători Amatori" : "Amateur Players", 
+              desc: language === "ro" 
+                ? "Joci fotbal pentru pasiune, în ligile locale sau competițiile de weekend. Ești determinat să transformi acea pasiune într-o carieră profesională și cauți modalitatea potrivită de a fi remarcat de scouteri și cluburi care apreciază dedicarea și potențialul tău, nu doar experiența anterioară la nivel profesional." 
+                : "You play football for passion, in local leagues or weekend competitions. You're determined to turn that passion into a professional career and looking for the right way to be noticed by scouts and clubs who value dedication and potential, not just previous professional experience.", 
+              emoji: "⚽" 
+            },
+            { 
+              title: language === "ro" ? "Jucători Semi-Profesioniști" : "Semi-Professional Players", 
+              desc: language === "ro" 
+                ? "Joci deja la nivel competitiv în ligile semi-profesioniste, echilibrând fotbalul cu alte angajamente. Ești pregătit să faci pasul complet către fotbalul profesionist și cauți expunere către cluburi din campionate superioare care caută jucători cu experiență competițională dovedită și ambițiile potrivite." 
+                : "You're already playing at a competitive level in semi-professional leagues, balancing football with other commitments. You're ready to make the full step into professional football and seeking exposure to clubs in higher leagues looking for players with proven competitive experience and the right ambitions.", 
+              emoji: "⚽" 
+            },
+            { 
+              title: language === "ro" ? "Jucători Profesioniști" : "Professional Players", 
+              desc: language === "ro" 
+                ? "Ai experiență în fotbalul profesionist și cauți un nou club, o ligă mai puternică sau oportunități internaționale. Ai nevoie de o platformă care să prezinte realizările tale într-un mod care atrage atenția cluburilor, scouterilor și agenților relevanți, facilitând trecerea către următoarea etapă a carierei tale." 
+                : "You have experience in professional football and are seeking a new club, a stronger league, or international opportunities. You need a platform that presents your achievements in a way that attracts the attention of relevant clubs, scouts, and agents, facilitating the move to the next stage of your career.", 
+              emoji: "⚽" 
+            },
+            { 
+              title: language === "ro" ? "Absolvenți de Academie" : "Academy Graduates", 
+              desc: language === "ro" 
+                ? "Ai absolvit o academie de fotbal sau ai crescut în sistemul juvenil al unui club, dar încă nu ai găsit locul potrivit pentru cariera ta de senior. Cauți vizibilitate către cluburi care apreciază pregătirea academică solidă și sunt dispuse să ofere șanse tinerelor talente pregătite profesional." 
+                : "You've graduated from a football academy or grown through a club's youth system, but haven't yet found the right place for your senior career. You're seeking visibility to clubs that value solid academy training and are willing to give chances to professionally prepared young talents.", 
+              emoji: "⚽" 
+            },
+            { 
+              title: language === "ro" ? "Agenți Liberi" : "Free Agents", 
+              desc: language === "ro" 
+                ? "Contractul tău a expirat sau ești între cluburi și cauți următoarea ta oportunitate. Ai nevoie de o platformă care te menține vizibil pentru cluburi, scouteri și agenți în timp ce explorezi opțiuni, permițându-ți să rămâi activ în procesul de recrutare chiar și între angajamente." 
+                : "Your contract has expired or you're between clubs and looking for your next opportunity. You need a platform that keeps you visible to clubs, scouts, and agents while you explore options, allowing you to stay active in the recruitment process even between engagements.", 
+              emoji: "⚽" 
+            },
+            { 
+              title: language === "ro" ? "Cluburi & Scouteri" : "Clubs & Scouts", 
+              desc: language === "ro" 
+                ? "Ești în căutarea constantă de noi talente pentru clubul tău sau clienții tăi. Open Trial îți oferă acces la o bază de date de jucători verificați, cu profiluri detaliate, analize de performanță și filmări video, ajutându-te să identifici candidații potriviți mai rapid și mai eficient decât prin metodele tradiționale de scouting." 
+                : "You're constantly searching for new talent for your club or clients. Open Trial gives you access to a database of verified players, with detailed profiles, performance analytics, and video footage, helping you identify the right candidates faster and more efficiently than through traditional scouting methods.", 
+              emoji: "⚽" 
+            }]
+            .map((item, idx) =>
             <Card
               key={idx}
               className={`tactical-card bg-card/50 backdrop-blur border-border cursor-pointer transition-all duration-300 ${
