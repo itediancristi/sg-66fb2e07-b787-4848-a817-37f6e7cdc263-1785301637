@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SEO } from "@/components/SEO";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { 
+import {
   Upload,
   Video,
   Image as ImageIcon,
@@ -14,8 +14,8 @@ import {
   Search,
   UserPlus,
   MessageSquare,
-  CheckCircle
-} from "lucide-react";
+  CheckCircle } from
+"lucide-react";
 
 export default function HowItWorksPage() {
   const { t, language } = useLanguage();
@@ -26,8 +26,8 @@ export default function HowItWorksPage() {
         title={language === "ro" ? "Cum Funcționează - Open Trial" : "How It Works - Open Trial"}
         description={language === "ro" ? "Află cum Open Trial conectează jucători de fotbal cu cluburi, scouteri și recrutori. Platformă simplă, transparentă, concentrată pe oportunități." : "Learn how Open Trial connects football players with clubs, scouts, and recruiters. Simple, transparent, opportunity-focused platform."}
         image="/og-image.png"
-        language={language}
-      />
+        language={language} />
+      
       
       <Navigation />
 
@@ -175,50 +175,50 @@ export default function HowItWorksPage() {
             </div>
 
             <Card className="tactical-card bg-card/50 backdrop-blur border-neon-green/30">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6 text-neon-green">
-                  {language === "ro" ? "Panou de Analiză" : "Analysis Dashboard"}
-                </h3>
-                
-                <div className="space-y-6">
-                  <div className="flex items-center justify-between p-4 bg-muted/20 rounded border border-border">
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-neon-green" />
-                      <span className="font-medium">
-                        {language === "ro" ? "Completitudine Profil" : "Profile Completeness"}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="w-32 h-2 bg-muted rounded-full overflow-hidden">
-                        <div className="h-full bg-neon-green w-[85%]"></div>
-                      </div>
-                      <span className="text-sm font-mono text-neon-green">85%</span>
-                    </div>
-                  </div>
+              
 
-                  <div className="flex items-center justify-between p-4 bg-muted/20 rounded border border-border">
-                    <div className="flex items-center gap-3">
-                      <Eye className="w-5 h-5 text-neon-green" />
-                      <span className="font-medium">
-                        {language === "ro" ? "Vizualizări Profil (7 zile)" : "Profile Views (7 days)"}
-                      </span>
-                    </div>
-                    <span className="text-xl font-bold font-mono text-neon-green">247</span>
-                  </div>
 
-                  <div className="flex items-center justify-between p-4 bg-muted/20 rounded border border-border">
-                    <div className="flex items-center gap-3">
-                      <TrendingUp className="w-5 h-5 text-neon-green" />
-                      <span className="font-medium">
-                        {language === "ro" ? "Scor Engagement" : "Engagement Score"}
-                      </span>
-                    </div>
-                    <Badge className="bg-neon-green/10 text-neon-green border-neon-green/30">
-                      {language === "ro" ? "Ridicat" : "High"}
-                    </Badge>
-                  </div>
-                </div>
-              </CardContent>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
             </Card>
           </div>
         </div>
@@ -231,8 +231,8 @@ export default function HowItWorksPage() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-neon-green/10 border border-neon-green/30 mb-6">
                 <span className="text-3xl font-bold text-neon-green">3</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-glow">
-                {language === "ro" ? "CONECTEAZĂ-TE CU OPORTUNITĂȚI" : "CONNECT WITH OPPORTUNITIES"}
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-glow">FII CONECTAT CU OPORTUNITĂȚILE
+
               </h2>
               <p className="text-lg text-muted-foreground mb-12">
                 {language === "ro" ? "Cluburile și recrutori se implică activ cu jucători talentați" : "Clubs and recruiters actively engage with talented players"}
@@ -281,6 +281,6 @@ export default function HowItWorksPage() {
       </section>
 
       <Footer />
-    </>
-  );
+    </>);
+
 }
