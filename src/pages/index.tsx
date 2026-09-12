@@ -12,7 +12,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "framer-motion";
 
-function Counter({ end, duration = 2000 }: { end: number; duration?: number }) {
+function Counter({ end, duration = 2000 }: {end: number;duration?: number;}) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -40,8 +40,8 @@ export default function Home() {
   // Animation variants for sections
   const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.6
@@ -88,8 +88,8 @@ export default function Home() {
         title={language === "ro" ? "Open Trial - Talent Meets Opportunity" : "Open Trial - Talent Meets Opportunity"}
         description={language === "ro" ? "Conectează jucători de fotbal cu cluburi, scouteri și oportunități în întreaga lume." : "Connect football players with clubs, scouts, and recruiters worldwide."}
         image="/og-image.png"
-        language={language}
-      />
+        language={language} />
+      
       
       <Navigation />
 
@@ -102,42 +102,42 @@ export default function Home() {
             alt="Stadium"
             fill
             className="object-cover"
-            priority
-          />
+            priority />
+          
           <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background" />
         </div>
 
         {/* Hero Content */}
-        <motion.div 
+        <motion.div
           initial="hidden"
           animate="visible"
           variants={heroStagger}
-          className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20 text-center"
-        >
+          className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20 text-center">
+          
           <motion.div variants={heroVariants}>
             <Badge className="mb-4 sm:mb-6 bg-neon-green/10 text-neon-green border-neon-green/30 hover:bg-neon-green/20 text-xs sm:text-sm px-3 sm:px-4 py-1">
               Discover • Analyze • Connect
             </Badge>
           </motion.div>
           
-          <motion.h1 
+          <motion.h1
             variants={heroVariants}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 text-glow tracking-tight leading-tight"
-          >
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 text-glow tracking-tight leading-tight">
+            
             TALENT MEETS<br />OPPORTUNITY
           </motion.h1>
           
-          <motion.p 
+          <motion.p
             variants={heroVariants}
-            className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8 sm:mb-10 px-4"
-          >
-            {t("hero.subtitle")}
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8 sm:mb-10 px-4">Open Trial transformă performanța în vizibilitate. Îți oferim cadrul profesionist prin care să ieși în evidență și să ajungi în atenția cluburilor, scouterilor și recrutorilor din România și din întreaga lume.Nu lăsa următoarea oportunitate să treacă pe lângă tine.
+
+
           </motion.p>
 
-          <motion.div 
+          <motion.div
             variants={heroVariants}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4"
-          >
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+            
             <Button asChild size="lg" className="bg-neon-green text-background hover:bg-neon-green/90 glow-green group text-sm sm:text-base px-6 sm:px-8 w-full sm:w-auto">
               <Link href="/apply">
                 {t("hero.cta")}
@@ -154,13 +154,13 @@ export default function Home() {
       </section>
 
       {/* Early Access Section */}
-      <motion.section 
+      <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={fadeInUp}
-        className="py-16 border-t border-border bg-neon-green/5"
-      >
+        className="py-16 border-t border-border bg-neon-green/5">
+        
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <Badge className="mb-4 bg-neon-green/20 text-neon-green border-neon-green/40 hover:bg-neon-green/30 text-sm px-4 py-1.5">
@@ -176,23 +176,23 @@ export default function Home() {
         </div>
       </motion.section>
 
-      <motion.section 
+      <motion.section
         id="stats-section"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={fadeInUp}
-        className="py-20 border-t border-border"
-      >
+        className="py-20 border-t border-border">
+        
         <div className="container">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-6 text-glow">
             TALENT IS EVERYWHERE.<br />OPPORTUNITY IS NOT.
           </h2>
           
           <p className="text-lg sm:text-xl text-muted-foreground text-center max-w-3xl mx-auto mb-16">
-            {language === "ro" 
-              ? "Mii de jucători de fotbal sunt trecuți cu vederea în fiecare sezon din cauza vizibilității limitate, lipsei de conexiuni și rețelelor de recrutare inaccesibile. Open Trial există pentru a reduce acest decalaj."
-              : "Thousands of football players are overlooked every season due to limited visibility, lack of connections, and inaccessible recruitment networks. Open Trial exists to bridge that gap."}
+            {language === "ro" ?
+            "Mii de jucători de fotbal sunt trecuți cu vederea în fiecare sezon din cauza vizibilității limitate, lipsei de conexiuni și rețelelor de recrutare inaccesibile. Open Trial există pentru a reduce acest decalaj." :
+            "Thousands of football players are overlooked every season due to limited visibility, lack of connections, and inaccessible recruitment networks. Open Trial exists to bridge that gap."}
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -240,14 +240,14 @@ export default function Home() {
       </motion.section>
 
       {/* How It Works Section */}
-      <motion.section 
+      <motion.section
         id="how-it-works-section"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={fadeInUp}
-        className="py-20 border-t border-border relative overflow-hidden"
-      >
+        className="py-20 border-t border-border relative overflow-hidden">
+        
         {/* Subtle grid pattern background */}
         <div className="absolute inset-0 opacity-[0.02]">
           <div className="absolute inset-0" style={{
@@ -263,15 +263,15 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { step: "01", title: t("how.step1.title"), desc: t("how.step1.desc"), icon: Users },
-              { step: "02", title: t("how.step2.title"), desc: t("how.step2.desc"), icon: Eye },
-              { step: "03", title: t("how.step3.title"), desc: t("how.step3.desc"), icon: Award },
-              { step: "04", title: t("how.step4.title"), desc: t("how.step4.desc"), icon: Zap },
-            ].map((item, idx) => (
-              <Card 
-                key={idx}
-                className="tactical-card bg-card/50 backdrop-blur border-border hover:border-neon-green/50 transition-all duration-300 group cursor-pointer"
-              >
+            { step: "01", title: t("how.step1.title"), desc: t("how.step1.desc"), icon: Users },
+            { step: "02", title: t("how.step2.title"), desc: t("how.step2.desc"), icon: Eye },
+            { step: "03", title: t("how.step3.title"), desc: t("how.step3.desc"), icon: Award },
+            { step: "04", title: t("how.step4.title"), desc: t("how.step4.desc"), icon: Zap }].
+            map((item, idx) =>
+            <Card
+              key={idx}
+              className="tactical-card bg-card/50 backdrop-blur border-border hover:border-neon-green/50 transition-all duration-300 group cursor-pointer">
+              
                 <CardContent className="p-8">
                   <div className="text-6xl font-bold text-neon-green/20 mb-4 group-hover:text-neon-green/40 transition-colors">
                     {item.step}
@@ -283,20 +283,20 @@ export default function Home() {
                   <p className="text-muted-foreground">{item.desc}</p>
                 </CardContent>
               </Card>
-            ))}
+            )}
           </div>
         </div>
       </motion.section>
 
       {/* What You Get Section */}
-      <motion.section 
+      <motion.section
         id="what-you-get-section"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={fadeInUp}
-        className="py-20 border-t border-border bg-muted/30 relative overflow-hidden"
-      >
+        className="py-20 border-t border-border bg-muted/30 relative overflow-hidden">
+        
         {/* Radial gradient spotlight effect */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0" style={{
@@ -311,42 +311,42 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              {
-                icon: Users,
-                title: language === "ro" ? "Profil Profesional" : "Professional Profile",
-                desc: language === "ro" ? "Un profil cuprinzător care prezintă abilitățile, experiența și realizările tale." : "A comprehensive profile showcasing your skills, experience, and achievements.",
-              },
-              {
-                icon: Eye,
-                title: language === "ro" ? "Vizibilitate" : "Visibility",
-                desc: language === "ro" ? "Fii descoperit de cluburi, scouteri și recrutori care caută talente activ." : "Get discovered by clubs, scouts, and recruiters actively searching for talent.",
-              },
-              {
-                icon: Award,
-                title: language === "ro" ? "Analiză Performanță" : "Performance Insights",
-                desc: language === "ro" ? "Analiză bazată pe date care evidențiază punctele tale forte și potențialul." : "Data-driven analysis that highlights your strengths and potential.",
-              },
-            ].map((item, idx) => (
-              <Card key={idx} className="tactical-card bg-card/50 backdrop-blur border-border hover:border-neon-green/50 transition-all duration-300">
+            {
+              icon: Users,
+              title: language === "ro" ? "Profil Profesional" : "Professional Profile",
+              desc: language === "ro" ? "Un profil cuprinzător care prezintă abilitățile, experiența și realizările tale." : "A comprehensive profile showcasing your skills, experience, and achievements."
+            },
+            {
+              icon: Eye,
+              title: language === "ro" ? "Vizibilitate" : "Visibility",
+              desc: language === "ro" ? "Fii descoperit de cluburi, scouteri și recrutori care caută talente activ." : "Get discovered by clubs, scouts, and recruiters actively searching for talent."
+            },
+            {
+              icon: Award,
+              title: language === "ro" ? "Analiză Performanță" : "Performance Insights",
+              desc: language === "ro" ? "Analiză bazată pe date care evidențiază punctele tale forte și potențialul." : "Data-driven analysis that highlights your strengths and potential."
+            }].
+            map((item, idx) =>
+            <Card key={idx} className="tactical-card bg-card/50 backdrop-blur border-border hover:border-neon-green/50 transition-all duration-300">
                 <CardContent className="p-8 text-center">
                   <item.icon className="w-12 h-12 text-neon-green mx-auto mb-4" />
                   <h3 className="text-xl font-bold mb-3">{item.title}</h3>
                   <p className="text-muted-foreground">{item.desc}</p>
                 </CardContent>
               </Card>
-            ))}
+            )}
           </div>
         </div>
       </motion.section>
 
-      <motion.section 
+      <motion.section
         id="who-its-for-section"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={fadeInUp}
-        className="py-20 border-t border-border relative overflow-hidden"
-      >
+        className="py-20 border-t border-border relative overflow-hidden">
+        
         {/* Football field lines pattern */}
         <div className="absolute inset-0 opacity-[0.03]">
           <div className="absolute inset-0" style={{
@@ -367,20 +367,20 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: language === "ro" ? "Jucători Amatori" : "Amateur Players", desc: language === "ro" ? "Începi călătoria ta profesională cu ambiție și determinare." : "Starting your professional journey with ambition and drive.", emoji: "⚽" },
-              { title: language === "ro" ? "Jucători Semi-Profesioniști" : "Semi-Professional Players", desc: language === "ro" ? "Gata să faci următorul pas în cariera ta." : "Ready to take the next step in your career.", emoji: "⚽" },
-              { title: language === "ro" ? "Jucători Profesioniști" : "Professional Players", desc: language === "ro" ? "Cauți noi oportunități și avansare în carieră." : "Seeking new opportunities and career advancement.", emoji: "⚽" },
-              { title: language === "ro" ? "Absolvenți de Academie" : "Academy Graduates", desc: language === "ro" ? "Tranziția de la fotbalul juvenil la nivel profesionist." : "Transitioning from youth football to professional level.", emoji: "⚽" },
-              { title: language === "ro" ? "Agenți Liberi" : "Free Agents", desc: language === "ro" ? "Disponibil și pregătit pentru următoarea ta oportunitate." : "Available and ready for your next club opportunity.", emoji: "⚽" },
-              { title: language === "ro" ? "Cluburi & Scouteri" : "Clubs & Scouts", desc: language === "ro" ? "Descoperă talente nedescoperite din întreaga lume." : "Discover undiscovered talent from around the world.", emoji: "⚽" },
-            ].map((item, idx) => (
-              <Card
-                key={idx}
-                className={`tactical-card bg-card/50 backdrop-blur border-border cursor-pointer transition-all duration-300 ${
-                  expandedCard === idx ? "border-neon-green" : "hover:border-neon-green/50"
-                }`}
-                onClick={() => setExpandedCard(expandedCard === idx ? null : idx)}
-              >
+            { title: language === "ro" ? "Jucători Amatori" : "Amateur Players", desc: language === "ro" ? "Începi călătoria ta profesională cu ambiție și determinare." : "Starting your professional journey with ambition and drive.", emoji: "⚽" },
+            { title: language === "ro" ? "Jucători Semi-Profesioniști" : "Semi-Professional Players", desc: language === "ro" ? "Gata să faci următorul pas în cariera ta." : "Ready to take the next step in your career.", emoji: "⚽" },
+            { title: language === "ro" ? "Jucători Profesioniști" : "Professional Players", desc: language === "ro" ? "Cauți noi oportunități și avansare în carieră." : "Seeking new opportunities and career advancement.", emoji: "⚽" },
+            { title: language === "ro" ? "Absolvenți de Academie" : "Academy Graduates", desc: language === "ro" ? "Tranziția de la fotbalul juvenil la nivel profesionist." : "Transitioning from youth football to professional level.", emoji: "⚽" },
+            { title: language === "ro" ? "Agenți Liberi" : "Free Agents", desc: language === "ro" ? "Disponibil și pregătit pentru următoarea ta oportunitate." : "Available and ready for your next club opportunity.", emoji: "⚽" },
+            { title: language === "ro" ? "Cluburi & Scouteri" : "Clubs & Scouts", desc: language === "ro" ? "Descoperă talente nedescoperite din întreaga lume." : "Discover undiscovered talent from around the world.", emoji: "⚽" }].
+            map((item, idx) =>
+            <Card
+              key={idx}
+              className={`tactical-card bg-card/50 backdrop-blur border-border cursor-pointer transition-all duration-300 ${
+              expandedCard === idx ? "border-neon-green" : "hover:border-neon-green/50"}`
+              }
+              onClick={() => setExpandedCard(expandedCard === idx ? null : idx)}>
+              
                 <CardContent className="p-6">
                   <div className="text-4xl mb-4">{item.emoji}</div>
                   <h3 className="text-xl font-bold mb-2">{item.title}</h3>
@@ -388,24 +388,24 @@ export default function Home() {
                     {item.desc}
                   </p>
                   <button className="text-neon-green text-sm mt-2 hover:underline">
-                    {expandedCard === idx ? (language === "ro" ? "Arată mai puțin" : "Show less") : (language === "ro" ? "Află mai multe" : "Learn more")}
+                    {expandedCard === idx ? language === "ro" ? "Arată mai puțin" : "Show less" : language === "ro" ? "Află mai multe" : "Learn more"}
                   </button>
                 </CardContent>
               </Card>
-            ))}
+            )}
           </div>
         </div>
       </motion.section>
 
       {/* Technology Partners Section */}
-      <motion.section 
+      <motion.section
         id="tech-partners-section"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={fadeInUp}
-        className="py-20 border-t border-border bg-muted/20 relative overflow-hidden"
-      >
+        className="py-20 border-t border-border bg-muted/20 relative overflow-hidden">
+        
         {/* Circuit board pattern */}
         <div className="absolute inset-0 opacity-[0.015]">
           <div className="absolute inset-0" style={{
@@ -423,9 +423,9 @@ export default function Home() {
               {language === "ro" ? "Susținut de Tehnologie Profesională de Fotbal" : "Powered By Professional Football Technology"}
             </h2>
             <p className="text-lg text-muted-foreground">
-              {language === "ro" 
-                ? "Open Trial utilizează tehnologii de top din industrie pentru analiza jucătorilor, revizuirea video, urmărirea performanței și vizibilitatea în recrutare."
-                : "Open Trial utilizes industry-leading technologies for player analysis, video review, performance tracking, and recruitment visibility."}
+              {language === "ro" ?
+              "Open Trial utilizează tehnologii de top din industrie pentru analiza jucătorilor, revizuirea video, urmărirea performanței și vizibilitatea în recrutare." :
+              "Open Trial utilizes industry-leading technologies for player analysis, video review, performance tracking, and recruitment visibility."}
             </p>
           </div>
 
@@ -435,8 +435,8 @@ export default function Home() {
                 src="/logo-veo.png"
                 alt="Veo"
                 fill
-                className="object-contain"
-              />
+                className="object-contain" />
+              
             </div>
             <div className="text-muted-foreground/30">|</div>
             <div className="relative h-12 w-32 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
@@ -444,8 +444,8 @@ export default function Home() {
                 src="/logo-playmaker.jpg"
                 alt="Playmaker"
                 fill
-                className="object-contain"
-              />
+                className="object-contain" />
+              
             </div>
             <div className="text-muted-foreground/30">|</div>
             <div className="relative h-12 w-32 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
@@ -453,8 +453,8 @@ export default function Home() {
                 src="/logo-hudl-wyscout.jpg"
                 alt="Hudl Wyscout"
                 fill
-                className="object-contain"
-              />
+                className="object-contain" />
+              
             </div>
             <div className="text-muted-foreground/30">|</div>
             <div className="relative h-12 w-36 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
@@ -462,8 +462,8 @@ export default function Home() {
                 src="/logo-transfermarkt.jpg"
                 alt="Transfermarkt"
                 fill
-                className="object-contain"
-              />
+                className="object-contain" />
+              
             </div>
             <div className="text-muted-foreground/30">|</div>
             <div className="relative h-12 w-32 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
@@ -471,27 +471,27 @@ export default function Home() {
                 src="/logo-catapult.jpg"
                 alt="Catapult"
                 fill
-                className="object-contain"
-              />
+                className="object-contain" />
+              
             </div>
           </div>
 
           <p className="text-center text-sm text-muted-foreground max-w-4xl mx-auto italic">
-            {language === "ro"
-              ? "Open Trial poate utiliza platforme standard din industrie de tehnologie și analiză fotbalistică pentru a susține evaluarea jucătorilor și crearea profilurilor. Toate mărcile înregistrate rămân proprietatea deținătorilor respectivi."
-              : "Open Trial may utilize industry-standard football technology and analysis platforms to support player evaluation and profile creation. All trademarks remain the property of their respective owners."}
+            {language === "ro" ?
+            "Open Trial poate utiliza platforme standard din industrie de tehnologie și analiză fotbalistică pentru a susține evaluarea jucătorilor și crearea profilurilor. Toate mărcile înregistrate rămân proprietatea deținătorilor respectivi." :
+            "Open Trial may utilize industry-standard football technology and analysis platforms to support player evaluation and profile creation. All trademarks remain the property of their respective owners."}
           </p>
         </div>
       </motion.section>
 
       {/* CTA Section */}
-      <motion.section 
+      <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={fadeInUp}
-        className="py-24 bg-gradient-to-b from-background to-muted/50 relative overflow-hidden"
-      >
+        className="py-24 bg-gradient-to-b from-background to-muted/50 relative overflow-hidden">
+        
         {/* Center spotlight effect */}
         <div className="absolute inset-0 opacity-30">
           <div className="absolute inset-0" style={{
@@ -504,9 +504,9 @@ export default function Home() {
             {language === "ro" ? "GATA SĂ FACI URMĂTORUL PAS?" : "READY TO TAKE THE NEXT STEP?"}
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
-            {language === "ro"
-              ? "Alătură-te miilor de jucători care și-au creat deja profiluri și s-au conectat cu oportunități în întreaga lume."
-              : "Join thousands of players who have already created their profiles and connected with opportunities worldwide."}
+            {language === "ro" ?
+            "Alătură-te miilor de jucători care și-au creat deja profiluri și s-au conectat cu oportunități în întreaga lume." :
+            "Join thousands of players who have already created their profiles and connected with opportunities worldwide."}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-neon-green text-background hover:bg-neon-green/90 glow-green-strong group text-base px-8">
@@ -525,6 +525,6 @@ export default function Home() {
       </motion.section>
 
       <Footer />
-    </>
-  );
+    </>);
+
 }
