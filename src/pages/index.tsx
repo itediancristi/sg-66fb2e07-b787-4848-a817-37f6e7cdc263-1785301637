@@ -129,7 +129,7 @@ export default function Home() {
           
           <motion.p
             variants={heroVariants}
-            className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8 sm:mb-10 px-4">Open Trial transformă performanța în vizibilitate. Îți oferim cadrul profesionist prin care să ieși în evidență și să ajungi în atenția cluburilor, scouterilor și recrutorilor din România și din întreaga lume.Nu lăsa următoarea oportunitate să treacă pe lângă tine.
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8 sm:mb-10 px-4">Open Trial transformă performanța în vizibilitate. Îți oferim cadrul profesionist prin care să ieși în evidență și să ajungi în atenția cluburilor, scouterilor și recrutorilor din România și din întreaga lume. Nu lăsa următoarea oportunitate să treacă pe lângă tine.
 
 
           </motion.p>

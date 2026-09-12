@@ -231,8 +231,8 @@ export default function HowItWorksPage() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-neon-green/10 border border-neon-green/30 mb-6">
                 <span className="text-3xl font-bold text-neon-green">3</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-glow">FII CONECTAT CU OPORTUNITĂȚILE
-
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-glow">
+                {language === "ro" ? "FII CONECTAT CU OPORTUNITĂȚILE" : "GET CONNECTED WITH OPPORTUNITIES"}
               </h2>
               <p className="text-lg text-muted-foreground mb-12">
                 {language === "ro" ? "Cluburile și recrutori se implică activ cu jucători talentați" : "Clubs and recruiters actively engage with talented players"}
